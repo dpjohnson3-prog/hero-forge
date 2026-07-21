@@ -1,0 +1,34 @@
+export default function PlanOverview({ hero }) {
+  return (
+    <div className="comic-panel relative overflow-hidden p-5 sm:p-6">
+      <span
+        className="absolute inset-y-0 left-0 w-1.5"
+        style={{ backgroundColor: hero.color }}
+      />
+      <div className="pl-2">
+        <div className="text-xs font-semibold uppercase tracking-widest text-text-dim">
+          {hero.archetype}
+        </div>
+        <h1 className="font-display mt-1 text-2xl sm:text-3xl">
+          {hero.name} <span className="text-text-dim font-body text-base font-normal">/ {hero.alias}</span>
+        </h1>
+        <p className="mt-2 max-w-2xl text-sm text-text-dim sm:text-base">{hero.blurb}</p>
+
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          {[
+            ['Weight', `${hero.target.weight} lb`],
+            ['Body Fat', `${hero.target.bodyFat}%`],
+            ['Chest', `${hero.target.chest} in`],
+            ['Arms', `${hero.target.arms} in`],
+            ['Waist', `${hero.target.waist} in`],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-md border border-border bg-panel-raised px-3 py-2">
+              <div className="text-[11px] uppercase tracking-wide text-text-dim">{label}</div>
+              <div className="font-display text-lg">{value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
