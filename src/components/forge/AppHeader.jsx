@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import { Flame, LayoutDashboard, Dumbbell } from 'lucide-react'
+import { Flame, LayoutDashboard, Dumbbell, LogOut } from 'lucide-react'
+import { useAuth } from '../../context/AuthProvider'
 
 const navLinkClass = ({ isActive }) =>
   `flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
@@ -7,6 +8,8 @@ const navLinkClass = ({ isActive }) =>
   }`
 
 export default function AppHeader() {
+  const { signOut } = useAuth()
+
   return (
     <header className="sticky top-0 z-20 border-b-2 border-border bg-ink/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
@@ -25,6 +28,14 @@ export default function AppHeader() {
             <LayoutDashboard className="h-4 w-4" />
             <span className="hidden sm:inline">Progress</span>
           </NavLink>
+          <button
+            type="button"
+            onClick={() => signOut()}
+            className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-hero-red"
+          >
+            <LogOut className="h-4 w-4" />
+            <span className="hidden sm:inline">Sign Out</span>
+          </button>
         </nav>
       </div>
     </header>
