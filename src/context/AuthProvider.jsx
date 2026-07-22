@@ -7,7 +7,13 @@ export function AuthProvider({ children }) {
   const [session, setSession] = useState(undefined) // undefined = still loading
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(data.session))
+    supabase.auth
+      .getSession()
+      .then(({ data }) => setSession(data.session))
+      .catch((err) => {
+        console.error('Failed to load session', err)
+        setSession(null)
+      })
 
     const { data: subscription } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession)
