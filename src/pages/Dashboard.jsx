@@ -1,14 +1,17 @@
 import { useMemo } from 'react'
 import { useSelectedHero } from '../hooks/useSelectedHero'
 import { useBodyMetrics } from '../hooks/useBodyMetrics'
+import { useWorkoutLog } from '../hooks/useWorkoutLog'
 import MetricForm from '../components/forge/MetricForm'
 import ProgressSummary from '../components/forge/ProgressSummary'
+import StreakBadges from '../components/forge/StreakBadges'
 import { WeightChart, MeasurementsChart } from '../components/forge/ProgressCharts'
 import { Trash2 } from 'lucide-react'
 
 export default function Dashboard() {
   const { hero } = useSelectedHero()
   const { metrics, latest, addMetric, removeMetric } = useBodyMetrics()
+  const { currentStreak, totalSessions } = useWorkoutLog()
 
   const chartData = useMemo(
     () =>
@@ -31,6 +34,8 @@ export default function Dashboard() {
           Track your body measurements over time and see how close you are to your {hero.name} goal physique.
         </p>
       </div>
+
+      <StreakBadges currentStreak={currentStreak} totalSessions={totalSessions} />
 
       <div className="grid gap-5 lg:grid-cols-2">
         <MetricForm onAdd={addMetric} />
