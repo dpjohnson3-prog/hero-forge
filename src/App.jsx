@@ -3,6 +3,7 @@ import AppHeader from './components/forge/AppHeader'
 import AuthScreen from './components/forge/AuthScreen'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
 import { useAuth } from './context/AuthProvider'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </div>
   )

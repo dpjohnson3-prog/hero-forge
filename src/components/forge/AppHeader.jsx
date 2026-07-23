@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { Flame, LayoutDashboard, Dumbbell, LogOut } from 'lucide-react'
+import { Flame, LayoutDashboard, Dumbbell, LogOut, Settings as SettingsIcon } from 'lucide-react'
 import { useAuth } from '../../context/AuthProvider'
 
 const navLinkClass = ({ isActive }) =>
@@ -27,6 +27,10 @@ export default function AppHeader() {
           <NavLink to="/dashboard" className={navLinkClass}>
             <LayoutDashboard className="h-4 w-4" />
             <span className="hidden sm:inline">Progress</span>
+          </NavLink>
+          <NavLink to="/settings" className={navLinkClass}>
+            <SettingsIcon className="h-4 w-4" />
+            <span className="hidden sm:inline">Settings</span>
           </NavLink>
           <button
             type="button"
