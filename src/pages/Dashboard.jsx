@@ -2,9 +2,12 @@ import { useMemo } from 'react'
 import { useSelectedHero } from '../hooks/useSelectedHero'
 import { useBodyMetrics } from '../hooks/useBodyMetrics'
 import { useWorkoutLog } from '../hooks/useWorkoutLog'
+import { useProgressPhotos } from '../hooks/useProgressPhotos'
 import MetricForm from '../components/forge/MetricForm'
 import ProgressSummary from '../components/forge/ProgressSummary'
 import StreakBadges from '../components/forge/StreakBadges'
+import PhotoUpload from '../components/forge/PhotoUpload'
+import PhotoGallery from '../components/forge/PhotoGallery'
 import { WeightChart, MeasurementsChart } from '../components/forge/ProgressCharts'
 import { Trash2 } from 'lucide-react'
 
@@ -12,6 +15,7 @@ export default function Dashboard() {
   const { hero } = useSelectedHero()
   const { metrics, latest, addMetric, removeMetric } = useBodyMetrics()
   const { currentStreak, totalSessions } = useWorkoutLog()
+  const { photos, uploading, uploadPhoto, deletePhoto } = useProgressPhotos()
 
   const chartData = useMemo(
     () =>
@@ -56,6 +60,9 @@ export default function Dashboard() {
           <MeasurementsChart data={chartData} />
         </div>
       </div>
+
+      <PhotoUpload onUpload={uploadPhoto} uploading={uploading} />
+      <PhotoGallery photos={photos} onDelete={deletePhoto} />
 
       <div className="comic-panel p-4 sm:p-5">
         <h2 className="font-display mb-3 text-sm uppercase tracking-wider text-text-dim">
