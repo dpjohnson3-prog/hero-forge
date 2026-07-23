@@ -1,3 +1,5 @@
+import HeroEmblem from './HeroEmblem'
+
 export default function PlanOverview({ hero }) {
   return (
     <div className="comic-panel relative overflow-hidden p-5 sm:p-6">
@@ -5,14 +7,21 @@ export default function PlanOverview({ hero }) {
         className="absolute inset-y-0 left-0 w-1.5"
         style={{ backgroundColor: hero.color }}
       />
-      <div className="pl-2">
-        <div className="text-xs font-semibold uppercase tracking-widest text-text-dim">
-          {hero.archetype}
+      <div className="flex items-start gap-4 pl-2">
+        <div
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-panel-raised sm:h-16 sm:w-16"
+          style={{ borderColor: hero.color }}
+        >
+          <HeroEmblem heroId={hero.id} className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: hero.color }} />
         </div>
-        <h1 className="font-display mt-1 text-2xl sm:text-3xl">
-          {hero.name} <span className="text-text-dim font-body text-base font-normal">/ {hero.alias}</span>
-        </h1>
-        <p className="mt-2 max-w-2xl text-sm text-text-dim sm:text-base">{hero.blurb}</p>
+        <div className="min-w-0">
+          <div className="text-xs font-semibold uppercase tracking-widest text-text-dim">
+            {hero.archetype}
+          </div>
+          <h1 className="font-display mt-1 text-2xl sm:text-3xl">
+            {hero.name} <span className="text-text-dim font-body text-base font-normal">/ {hero.alias}</span>
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-text-dim sm:text-base">{hero.blurb}</p>
 
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
           {[
@@ -27,6 +36,7 @@ export default function PlanOverview({ hero }) {
               <div className="font-display text-lg">{value}</div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </div>

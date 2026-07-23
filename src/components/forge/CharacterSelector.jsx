@@ -1,4 +1,5 @@
 import { HEROES } from '../../data/characterPlans'
+import HeroEmblem from './HeroEmblem'
 
 export default function CharacterSelector({ selectedId, onSelect }) {
   return (
@@ -14,7 +15,7 @@ export default function CharacterSelector({ selectedId, onSelect }) {
               key={hero.id}
               type="button"
               onClick={() => onSelect(hero.id)}
-              className={`group relative overflow-hidden rounded-lg border-2 px-3 py-3 text-left transition-transform hover:-translate-y-0.5 ${
+              className={`group relative flex items-center gap-2.5 overflow-hidden rounded-lg border-2 px-3 py-3 text-left transition-transform hover:-translate-y-0.5 ${
                 active ? 'border-hero-gold bg-panel-raised' : 'border-border bg-panel hover:border-text-dim'
               }`}
               aria-pressed={active}
@@ -23,8 +24,11 @@ export default function CharacterSelector({ selectedId, onSelect }) {
                 className="absolute inset-x-0 top-0 h-1"
                 style={{ backgroundColor: hero.color }}
               />
-              <div className="font-display text-sm leading-tight sm:text-base">{hero.name}</div>
-              <div className="mt-0.5 text-xs text-text-dim">{hero.archetype}</div>
+              <HeroEmblem heroId={hero.id} className="h-6 w-6 shrink-0" style={{ color: hero.color }} />
+              <div className="min-w-0">
+                <div className="font-display truncate text-sm leading-tight sm:text-base">{hero.name}</div>
+                <div className="mt-0.5 truncate text-xs text-text-dim">{hero.archetype}</div>
+              </div>
             </button>
           )
         })}
