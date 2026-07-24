@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthProvider'
-import { HEROES, getHeroById } from '../data/characterPlans'
+import { getHeroById } from '../data/characterPlans'
 
 export function useSelectedHero() {
   const { user } = useAuth()
-  const [heroId, setHeroIdState] = useState(HEROES[0].id)
+  const [heroId, setHeroIdState] = useState(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     if (!user) return
@@ -20,9 +21,11 @@ export function useSelectedHero() {
         if (cancelled) return
         if (error) {
           console.error('Failed to load selected hero', error)
+          setLoaded(true)
           return
         }
-        if (data?.selected_hero_id) setHeroIdState(data.selected_hero_id)
+        setHeroIdState(data?.selected_hero_id ?? null)
+        setLoaded(true)
       })
 
     return () => {
@@ -44,6 +47,6 @@ export function useSelectedHero() {
     [user],
   )
 
-  const hero = getHeroById(heroId) ?? HEROES[0]
-  return { hero, heroId, setHeroId }
+  const hero = heroId ? getHeroById(heroId) : null
+  return { hero, heroId, setHeroId, loaded }
 }
