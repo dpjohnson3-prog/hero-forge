@@ -1,6 +1,10 @@
+import { useState } from 'react'
 import { Dumbbell } from 'lucide-react'
+import ExerciseModal from './ExerciseModal'
 
 export default function WorkoutPlan({ hero }) {
+  const [activeExercise, setActiveExercise] = useState(null)
+
   return (
     <div className="comic-panel p-5 sm:p-6">
       <div className="mb-1 flex items-center gap-2">
@@ -18,20 +22,27 @@ export default function WorkoutPlan({ hero }) {
             </div>
             <ul className="mt-2 space-y-1.5">
               {day.exercises.map((exercise) => (
-                <li
-                  key={exercise.name}
-                  className="flex items-center justify-between text-sm text-text-dim"
-                >
-                  <span className="text-text">{exercise.name}</span>
-                  <span className="whitespace-nowrap text-xs">
-                    {exercise.sets} × {exercise.reps}
-                  </span>
+                <li key={exercise.name}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveExercise(exercise)}
+                    className="flex w-full items-center justify-between rounded px-1 py-0.5 text-left text-sm text-text-dim transition-colors hover:bg-panel hover:text-text"
+                  >
+                    <span className="text-text underline decoration-dotted underline-offset-4">
+                      {exercise.name}
+                    </span>
+                    <span className="whitespace-nowrap text-xs">
+                      {exercise.sets} × {exercise.reps}
+                    </span>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
+
+      <ExerciseModal exercise={activeExercise} onClose={() => setActiveExercise(null)} />
     </div>
   )
 }

@@ -21,9 +21,9 @@ export const HEROES = [
         day('Day 1', 'Strength — Push', [ex('Barbell Bench Press', 5, '5'), ex('Weighted Dip', 4, '8'), ex('Overhead Press', 4, '6'), ex('Cable Fly', 3, '12')]),
         day('Day 2', 'Combat Conditioning', [ex('Heavy Bag Rounds', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Sprawls', 4, '15'), ex('Sled Push', 4, '20m')]),
         day('Day 3', 'Strength — Pull', [ex('Weighted Pull-Up', 5, '6'), ex('Barbell Row', 4, '8'), ex('Deadlift', 4, '5'), ex('Farmer Carry', 3, '40m')]),
-        day('Day 4', 'Brazilian Jiu-Jitsu / Grappling', [ex('Live Rolling', 6, '5 min'), ex('Takedown Drills', 5, '10'), ex('Grip Strength Work', 4, '30s')]),
+        day('Day 4', 'Grip & Core Strength', [ex('Farmer Carry', 5, '40m'), ex('Plate Pinch Hold', 4, '30s'), ex('Weighted Dead Hang', 4, '20s')]),
         day('Day 5', 'Strength — Legs', [ex('Back Squat', 5, '5'), ex('Bulgarian Split Squat', 4, '10'), ex('Romanian Deadlift', 4, '8'), ex('Calf Raise', 4, '15')]),
-        day('Day 6', 'Parkour & Mobility', [ex('Vault/Roll Drills', 5, '10'), ex('Wall Run Practice', 4, '5'), ex('Mobility Flow', 1, '20 min')]),
+        day('Day 6', 'Plyometrics & Mobility', [ex('Box Jump', 5, '10'), ex('Broad Jump', 4, '8'), ex('Mobility Flow', 1, '20 min')]),
       ],
     },
     diet: {
@@ -48,11 +48,11 @@ export const HEROES = [
     workout: {
       split: '5-day gymnastic strength training',
       days: [
-        day('Day 1', 'Upper Body Gymnastics', [ex('Ring Dips', 5, '10'), ex('Muscle-Ups', 5, '5'), ex('Handstand Push-Up', 4, '6'), ex('L-Sit Hold', 4, '20s')]),
-        day('Day 2', 'Sprint & Plyometric', [ex('Sprint Intervals', 8, '100m'), ex('Box Jumps', 5, '8'), ex('Broad Jumps', 4, '6')]),
+        day('Day 1', 'Upper Body Gymnastics', [ex('Ring Dips', 5, '10'), ex('Muscle-Up', 5, '5'), ex('Handstand Push-Up', 4, '6'), ex('L-Sit Hold', 4, '20s')]),
+        day('Day 2', 'Sprint & Plyometric', [ex('Treadmill Sprint Intervals', 8, '100m'), ex('Box Jump', 5, '8'), ex('Broad Jump', 4, '6')]),
         day('Day 3', 'Pull & Core', [ex('Weighted Pull-Up', 5, '8'), ex('Front Lever Progression', 4, '15s'), ex('Hanging Leg Raise', 4, '15'), ex('Dragon Flag', 3, '8')]),
-        day('Day 4', 'Parkour Flow', [ex('Vaulting Circuit', 6, '10'), ex('Precision Jumps', 5, '8'), ex('Wall Climbs', 4, '6')]),
-        day('Day 5', 'Full Body Circuit', [ex('Pistol Squats', 4, '10'), ex('Push-Up Variations', 4, '15'), ex('Rope Climb', 4, '2')]),
+        day('Day 4', 'Plyometric Power', [ex('Box Jump', 6, '10'), ex('Broad Jump', 5, '8'), ex('Weighted Step-Up', 4, '10')]),
+        day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Push-Up Variations', 4, '15'), ex('Rope Climb', 4, '2')]),
       ],
     },
     diet: {
@@ -79,10 +79,10 @@ export const HEROES = [
       days: [
         day('Day 1', 'Boxing Technique', [ex('Heavy Bag Combos', 8, '3 min'), ex('Speed Bag', 5, '2 min'), ex('Shadow Boxing', 5, '3 min')]),
         day('Day 2', 'Strength — Full Body', [ex('Trap Bar Deadlift', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Push Press', 4, '6')]),
-        day('Day 3', 'Muay Thai Conditioning', [ex('Kick Pad Rounds', 6, '3 min'), ex('Clinch Knees', 5, '10'), ex('Jump Rope', 5, '3 min')]),
+        day('Day 3', 'Muay Thai Conditioning', [ex('Heavy Bag Kick Rounds', 6, '3 min'), ex('Heavy Bag Knee Strikes', 5, '10'), ex('Jump Rope', 5, '3 min')]),
         day('Day 4', 'Core & Rotational Power', [ex('Landmine Rotations', 4, '12'), ex('Medicine Ball Slam', 4, '12'), ex('Hanging Leg Raise', 4, '15')]),
-        day('Day 5', 'Sparring / Reactive Drills', [ex('Live Sparring Rounds', 5, '3 min'), ex('Reaction Ball Drills', 4, '2 min')]),
-        day('Day 6', 'Endurance Run + Mobility', [ex('Tempo Run', 1, '5 miles'), ex('Hip Mobility Flow', 1, '15 min')]),
+        day('Day 5', 'Reactive Bag Work', [ex('Heavy Bag Rounds', 5, '3 min'), ex('Reaction Ball Drills', 4, '2 min')]),
+        day('Day 6', 'Endurance Run + Mobility', [ex('Treadmill Tempo Run', 1, '5 miles'), ex('Hip Mobility Flow', 1, '15 min')]),
       ],
     },
     diet: {
@@ -107,11 +107,11 @@ export const HEROES = [
     workout: {
       split: '5-day heavy strength & mass split',
       days: [
-        day('Day 1', 'Chest & Triceps', [ex('Barbell Bench Press', 5, '5'), ex('Incline Dumbbell Press', 4, '8'), ex('Weighted Dip', 4, '10'), ex('Close-Grip Bench', 4, '8')]),
+        day('Day 1', 'Chest & Triceps', [ex('Barbell Bench Press', 5, '5'), ex('Incline Dumbbell Press', 4, '8'), ex('Weighted Dip', 4, '10'), ex('Close-Grip Bench Press', 4, '8')]),
         day('Day 2', 'Back & Biceps', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '8'), ex('Barbell Curl', 4, '10')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '5'), ex('Leg Press', 4, '10'), ex('Walking Lunge', 4, '12'), ex('Standing Calf Raise', 5, '15')]),
         day('Day 4', 'Shoulders — "Hammer Time"', [ex('Overhead Press', 5, '5'), ex('Arnold Press', 4, '10'), ex('Lateral Raise', 4, '15'), ex('Sledgehammer Slams', 5, '20')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Farmer Carry', 5, '50m'), ex('Atlas Stone Load', 5, '5'), ex('Sled Drag', 5, '30m')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Farmer Carry', 5, '50m'), ex('Zercher Deadlift', 5, '5'), ex('Sled Drag', 5, '30m')]),
       ],
     },
     diet: {
@@ -136,7 +136,7 @@ export const HEROES = [
     workout: {
       split: '5-day classic bodybuilding split',
       days: [
-        day('Day 1', 'Chest', [ex('Flat Barbell Bench Press', 5, '6'), ex('Incline Dumbbell Press', 4, '10'), ex('Cable Fly', 4, '12'), ex('Push-Up Finisher', 3, 'AMRAP')]),
+        day('Day 1', 'Chest', [ex('Barbell Bench Press', 5, '6'), ex('Incline Dumbbell Press', 4, '10'), ex('Cable Fly', 4, '12'), ex('Push-Up Finisher', 3, 'AMRAP')]),
         day('Day 2', 'Back', [ex('Deadlift', 4, '6'), ex('Pull-Up', 5, '10'), ex('T-Bar Row', 4, '10'), ex('Lat Pulldown', 4, '12')]),
         day('Day 3', 'Legs', [ex('Back Squat', 5, '6'), ex('Leg Press', 4, '12'), ex('Leg Extension', 4, '15'), ex('Seated Calf Raise', 4, '15')]),
         day('Day 4', 'Shoulders & Arms', [ex('Overhead Press', 4, '8'), ex('Lateral Raise', 4, '15'), ex('Barbell Curl', 4, '10'), ex('Tricep Pushdown', 4, '12')]),
@@ -165,12 +165,12 @@ export const HEROES = [
     workout: {
       split: '6-day military hybrid training',
       days: [
-        day('Day 1', 'Strength — Upper', [ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Overhead Press', 4, '6')]),
+        day('Day 1', 'Strength — Upper', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Overhead Press', 4, '6')]),
         day('Day 2', 'Conditioning — Circuit', [ex('Burpees', 5, '20'), ex('Kettlebell Swing', 5, '20'), ex('Battle Ropes', 5, '30s')]),
         day('Day 3', 'Strength — Lower', [ex('Front Squat', 5, '6'), ex('Deadlift', 4, '5'), ex('Box Jump', 4, '8')]),
-        day('Day 4', 'Shield Combat Drills', [ex('Med Ball Throws', 5, '10'), ex('Agility Ladder', 5, '30s'), ex('Reactive Sparring', 4, '3 min')]),
+        day('Day 4', 'Shield Combat Drills', [ex('Medicine Ball Throw', 5, '10'), ex('Agility Ladder', 5, '30s'), ex('Shadow Boxing', 4, '3 min')]),
         day('Day 5', 'Calisthenics & Core', [ex('Dips', 5, '12'), ex('Hanging Leg Raise', 4, '15'), ex('Plank Complex', 3, '60s')]),
-        day('Day 6', 'Endurance Run', [ex('Ruck March', 1, '5 miles'), ex('Sprint Finisher', 6, '100m')]),
+        day('Day 6', 'Endurance Run', [ex('Weighted Vest Treadmill March', 1, '5 miles'), ex('Treadmill Sprint Finisher', 6, '100m')]),
       ],
     },
     diet: {
@@ -195,11 +195,11 @@ export const HEROES = [
     workout: {
       split: '5-day high-volume mass split',
       days: [
-        day('Day 1', 'Chest — Volume', [ex('Bench Press', 6, '8'), ex('Incline Press', 5, '10'), ex('Dumbbell Fly', 5, '12'), ex('Push-Up to Failure', 3, 'AMRAP')]),
+        day('Day 1', 'Chest — Volume', [ex('Barbell Bench Press', 6, '8'), ex('Incline Press', 5, '10'), ex('Dumbbell Fly', 5, '12'), ex('Push-Up Finisher', 3, 'AMRAP')]),
         day('Day 2', 'Back — Volume', [ex('Deadlift', 5, '6'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10'), ex('Shrugs', 5, '15')]),
         day('Day 3', 'Legs — Brutal', [ex('Back Squat', 6, '8'), ex('Leg Press', 5, '15'), ex('Walking Lunge', 4, '15'), ex('Leg Curl', 5, '12')]),
         day('Day 4', 'Arms & Shoulders', [ex('Overhead Press', 5, '8'), ex('Barbell Curl', 5, '10'), ex('Skull Crusher', 5, '10'), ex('Lateral Raise', 5, '15')]),
-        day('Day 5', 'Power / Smash Conditioning', [ex('Tire Flips', 6, '10'), ex('Sledgehammer Slams', 6, '20'), ex('Sled Push', 5, '25m')]),
+        day('Day 5', 'Power / Smash Conditioning', [ex('Tire Flip', 6, '10'), ex('Sledgehammer Slams', 6, '20'), ex('Sled Push', 5, '25m')]),
       ],
     },
     diet: {
@@ -224,12 +224,12 @@ export const HEROES = [
     workout: {
       split: '6-day high-frequency strength training',
       days: [
-        day('Day 1', 'Full Body Strength', [ex('Deadlift', 5, '5'), ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
-        day('Day 2', 'Claws Out — Combat Drills', [ex('Heavy Bag Slashing Combos', 6, '2 min'), ex('Grip Crush Work', 5, '30s'), ex('Knife-Hand Strikes', 4, '20')]),
+        day('Day 1', 'Full Body Strength', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
+        day('Day 2', 'Claws Out — Combat Drills', [ex('Heavy Bag Slashing Combos', 6, '2 min'), ex('Grip Crush Work', 5, '30s'), ex('Speed Bag', 4, '20')]),
         day('Day 3', 'Legs & Core', [ex('Front Squat', 5, '6'), ex('Bulgarian Split Squat', 4, '10'), ex('Weighted Sit-Up', 4, '15')]),
-        day('Day 4', 'Feral Conditioning', [ex('Sprint Intervals', 8, '80m'), ex('Bear Crawl', 5, '20m'), ex('Animal Flow Circuit', 4, '10 min')]),
+        day('Day 4', 'Feral Conditioning', [ex('Treadmill Sprint Intervals', 8, '80m'), ex('Bear Crawl', 5, '20m'), ex('Animal Flow', 4, '10 min')]),
         day('Day 5', 'Pull & Grip', [ex('Rope Climb', 5, '3'), ex('Barbell Row', 5, '8'), ex('Farmer Carry', 4, '50m')]),
-        day('Day 6', 'Push & Power', [ex('Overhead Press', 5, '6'), ex('Dips', 5, '12'), ex('Explosive Push-Up', 4, '10')]),
+        day('Day 6', 'Push & Power', [ex('Overhead Press', 5, '6'), ex('Dips', 5, '12'), ex('Plyo Push-Up', 4, '10')]),
       ],
     },
     diet: {
@@ -254,10 +254,10 @@ export const HEROES = [
     workout: {
       split: '5-day swim-strength hybrid',
       days: [
-        day('Day 1', 'Pool — Power Swim', [ex('Sprint Freestyle', 10, '50m'), ex('Resistance Band Swim', 4, '2 min'), ex('Kickboard Sets', 5, '100m')]),
+        day('Day 1', 'Rowing — Power Conditioning', [ex('Rowing Sprints', 10, '50m'), ex('Straight-Arm Lat Pulldown', 4, '2 min'), ex('Flutter Kicks', 5, '100m')]),
         day('Day 2', 'Strength — Pull-Dominant', [ex('Weighted Pull-Up', 5, '8'), ex('Lat Pulldown', 4, '12'), ex('Barbell Row', 4, '10'), ex('Cable Pullover', 4, '12')]),
         day('Day 3', 'Legs — Explosive', [ex('Squat Jump', 5, '10'), ex('Back Squat', 4, '8'), ex('Nordic Curl', 4, '8'), ex('Calf Raise', 4, '15')]),
-        day('Day 4', 'Pool — Endurance', [ex('Distance Swim', 1, '2000m'), ex('Underwater Sprints', 6, '25m')]),
+        day('Day 4', 'Rowing — Endurance', [ex('Rowing Machine', 1, '2000m'), ex('Assault Bike Sprints', 6, '25m')]),
         day('Day 5', 'Shoulders & Trident Work', [ex('Overhead Press', 5, '8'), ex('Landmine Press', 4, '10'), ex('Rotational Throws', 4, '12')]),
       ],
     },
@@ -284,10 +284,10 @@ export const HEROES = [
       split: '6-day martial arts & explosive power',
       days: [
         day('Day 1', 'Explosive Strength', [ex('Power Clean', 5, '3'), ex('Box Jump', 5, '6'), ex('Trap Bar Jump', 4, '5')]),
-        day('Day 2', 'Wakandan Martial Arts', [ex('Pad Combos', 6, '3 min'), ex('Takedown Drills', 5, '10'), ex('Flow Sparring', 4, '3 min')]),
-        day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Bench Press', 4, '6')]),
-        day('Day 4', 'Sprint & Agility', [ex('Sprint Intervals', 8, '60m'), ex('Cone Agility Drills', 5, '30s'), ex('Lateral Bounds', 4, '10')]),
-        day('Day 5', 'Core & Rotational Power', [ex('Cable Rotation', 4, '12'), ex('Med Ball Slam', 4, '12'), ex('Hanging Windshield Wiper', 4, '10')]),
+        day('Day 2', 'Wakandan Martial Arts', [ex('Heavy Bag Combos', 6, '3 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '6')]),
+        day('Day 4', 'Sprint & Agility', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Cone Agility Drills', 5, '30s'), ex('Lateral Bounds', 4, '10')]),
+        day('Day 5', 'Core & Rotational Power', [ex('Cable Rotation', 4, '12'), ex('Medicine Ball Slam', 4, '12'), ex('Hanging Windshield Wiper', 4, '10')]),
         day('Day 6', 'Vibranium Suit Mobility', [ex('Animal Flow', 1, '20 min'), ex('Deep Squat Hold Flow', 4, '30s')]),
       ],
     },
@@ -313,12 +313,12 @@ export const HEROES = [
     workout: {
       split: '6-day warrior strength & combat training',
       days: [
-        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Bench Press', 4, '6'), ex('Weighted Pull-Up', 4, '8')]),
-        day('Day 2', 'Sword & Shield Combat', [ex('Weighted Sword Drills', 6, '2 min'), ex('Shield Block Circuit', 5, '15'), ex('Footwork Ladder', 5, '30s')]),
+        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 4, '6'), ex('Weighted Pull-Up', 4, '8')]),
+        day('Day 2', 'Sword & Shield Combat', [ex('Landmine Rotations', 6, '2 min'), ex('Battle Ropes', 5, '15'), ex('Agility Ladder', 5, '30s')]),
         day('Day 3', 'Legs — Power', [ex('Back Squat', 5, '6'), ex('Walking Lunge', 4, '12'), ex('Box Jump', 4, '8')]),
         day('Day 4', 'Lasso & Grip Conditioning', [ex('Battle Ropes', 5, '30s'), ex('Rope Climb', 4, '3'), ex('Farmer Carry', 4, '40m')]),
         day('Day 5', 'Olympic Lifting', [ex('Clean & Jerk', 5, '3'), ex('Snatch', 5, '3'), ex('Front Squat', 4, '6')]),
-        day('Day 6', 'Aerial Combat Conditioning', [ex('Sprint Intervals', 8, '80m'), ex('Plyo Push-Up', 4, '10'), ex('Core Circuit', 4, '15')]),
+        day('Day 6', 'Aerial Combat Conditioning', [ex('Treadmill Sprint Intervals', 8, '80m'), ex('Plyo Push-Up', 4, '10'), ex('Core Circuit', 4, '15')]),
       ],
     },
     diet: {
@@ -344,10 +344,10 @@ export const HEROES = [
       split: '5-day calisthenics & agility training',
       days: [
         day('Day 1', 'Upper Body Calisthenics', [ex('Muscle-Up', 5, '5'), ex('Archer Pull-Up', 4, '8'), ex('Handstand Push-Up', 4, '6')]),
-        day('Day 2', 'Climbing & Grip', [ex('Bouldering Circuit', 1, '45 min'), ex('Fingerboard Hangs', 5, '15s'), ex('Rope Climb (No Legs)', 4, '2')]),
+        day('Day 2', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Weighted Dead Hang', 5, '15s'), ex('Rope Climb', 4, '2')]),
         day('Day 3', 'Agility & Reaction', [ex('Agility Ladder', 6, '30s'), ex('Reaction Ball Drills', 5, '2 min'), ex('Web-Swing Simulation (TRX)', 4, '10')]),
         day('Day 4', 'Core & Spider Sense', [ex('Dragon Flag', 4, '8'), ex('Hollow Body Hold', 4, '30s'), ex('Reactive Dodge Drills', 5, '2 min')]),
-        day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Wall Climb Practice', 5, '5'), ex('Sprint Intervals', 6, '60m')]),
+        day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Weighted Step-Up', 5, '5'), ex('Treadmill Sprint Intervals', 6, '60m')]),
       ],
     },
     diet: {
@@ -373,11 +373,11 @@ export const HEROES = [
       split: '6-day unconventional mercenary training',
       days: [
         day('Day 1', 'Weapons & Strength', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Kettlebell Swing', 4, '20')]),
-        day('Day 2', 'Katana Conditioning', [ex('Bag Slashing Combos', 6, '2 min'), ex('Footwork Drills', 5, '30s'), ex('Reactive Sparring', 4, '3 min')]),
-        day('Day 3', 'Legs & Core', [ex('Squat', 5, '8'), ex('Lunge Walk', 4, '12'), ex('Weighted Sit-Up', 4, '15')]),
+        day('Day 2', 'Katana Conditioning', [ex('Heavy Bag Slashing Combos', 6, '2 min'), ex('Agility Ladder', 5, '30s'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 3', 'Legs & Core', [ex('Back Squat', 5, '8'), ex('Walking Lunge', 4, '12'), ex('Weighted Sit-Up', 4, '15')]),
         day('Day 4', '"Chimichanga" Circuit (Metabolic)', [ex('Burpees', 5, '15'), ex('Rowing Sprints', 5, '250m'), ex('Battle Ropes', 4, '30s')]),
         day('Day 5', 'Push/Pull Superset', [ex('Dip Superset Row', 5, '10/10'), ex('Overhead Press', 4, '8'), ex('Barbell Curl', 4, '10')]),
-        day('Day 6', 'Chaos Conditioning (Random Circuit)', [ex('Randomized Exercise Roulette', 1, '30 min')]),
+        day('Day 6', 'Chaos Conditioning (Random Circuit)', [ex('Randomized Gym Circuit', 1, '30 min')]),
       ],
     },
     diet: {
@@ -402,10 +402,10 @@ export const HEROES = [
     workout: {
       split: '4-day efficient strength & conditioning',
       days: [
-        day('Day 1', 'Upper Body Strength', [ex('Bench Press', 4, '8'), ex('Pull-Up', 4, '10'), ex('Overhead Press', 4, '8')]),
+        day('Day 1', 'Upper Body Strength', [ex('Barbell Bench Press', 4, '8'), ex('Pull-Up', 4, '10'), ex('Overhead Press', 4, '8')]),
         day('Day 2', 'Conditioning Circuit', [ex('Rowing Machine', 5, '500m'), ex('Kettlebell Complex', 4, '10 min'), ex('Core Finisher', 3, '15')]),
-        day('Day 3', 'Lower Body Strength', [ex('Squat', 4, '8'), ex('Romanian Deadlift', 4, '10'), ex('Leg Press', 3, '12')]),
-        day('Day 4', 'Mobility & Light Cardio', [ex('Incline Walk', 1, '30 min'), ex('Mobility Flow', 1, '15 min'), ex('Light Circuit', 3, '12')]),
+        day('Day 3', 'Lower Body Strength', [ex('Back Squat', 4, '8'), ex('Romanian Deadlift', 4, '10'), ex('Leg Press', 3, '12')]),
+        day('Day 4', 'Mobility & Light Cardio', [ex('Incline Treadmill Walk', 1, '30 min'), ex('Mobility Flow', 1, '15 min'), ex('Light Circuit', 3, '12')]),
       ],
     },
     diet: {
@@ -430,7 +430,7 @@ export const HEROES = [
     workout: {
       split: '5-day tank-strength split',
       days: [
-        day('Day 1', 'Chest & Triceps — Heavy', [ex('Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Press', 5, '8')]),
+        day('Day 1', 'Chest & Triceps — Heavy', [ex('Barbell Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Bench Press', 5, '8')]),
         day('Day 2', 'Back — Heavy', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '10'), ex('T-Bar Row', 5, '10')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '12'), ex('Standing Calf Raise', 5, '15')]),
         day('Day 4', 'Shoulders & Traps', [ex('Overhead Press', 5, '6'), ex('Shrugs', 5, '15'), ex('Lateral Raise', 5, '15')]),
@@ -460,10 +460,10 @@ export const HEROES = [
       split: '5-day power & mass split',
       days: [
         day('Day 1', 'Explosive Full Body', [ex('Power Clean', 5, '3'), ex('Push Press', 5, '5'), ex('Box Jump', 4, '6')]),
-        day('Day 2', 'Chest & Back', [ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '10')]),
+        day('Day 2', 'Chest & Back', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '10')]),
         day('Day 3', 'Legs — Power', [ex('Back Squat', 5, '6'), ex('Deadlift', 4, '5'), ex('Jump Lunge', 4, '10')]),
         day('Day 4', 'Shoulders & Lightning Grip', [ex('Overhead Press', 5, '6'), ex('Lateral Raise', 4, '15'), ex('Farmer Carry', 4, '50m')]),
-        day('Day 5', 'Conditioning — Thunder Circuit', [ex('Sled Push', 5, '25m'), ex('Battle Ropes', 5, '30s'), ex('Sprint Intervals', 6, '80m')]),
+        day('Day 5', 'Conditioning — Thunder Circuit', [ex('Sled Push', 5, '25m'), ex('Battle Ropes', 5, '30s'), ex('Treadmill Sprint Intervals', 6, '80m')]),
       ],
     },
     diet: {
@@ -488,11 +488,11 @@ export const HEROES = [
     workout: {
       split: '5-day tactical assassin conditioning',
       days: [
-        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Bench Press', 4, '8')]),
-        day('Day 2', 'Close-Quarters Combat', [ex('Pad Combos', 6, '2 min'), ex('Joint-Lock Drills', 5, '10'), ex('Reactive Sparring', 4, '3 min')]),
-        day('Day 3', 'Agility & Gymnastics', [ex('Agility Ladder', 6, '30s'), ex('Tumbling Drills', 5, '10'), ex('Box Jump', 4, '8')]),
+        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '8')]),
+        day('Day 2', 'Close-Quarters Combat', [ex('Heavy Bag Combos', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 3', 'Agility & Plyometrics', [ex('Agility Ladder', 6, '30s'), ex('Broad Jump', 5, '10'), ex('Box Jump', 4, '8')]),
         day('Day 4', 'Marksmanship & Core Stability', [ex('Weighted Plank Complex', 4, '45s'), ex('Rotational Throws', 4, '12'), ex('Stability Ball Circuit', 3, '15')]),
-        day('Day 5', 'Infiltration Conditioning', [ex('Stair Sprints', 8, '1 flight'), ex('Rope Climb', 4, '2'), ex('Swim Intervals', 6, '50m')]),
+        day('Day 5', 'Infiltration Conditioning', [ex('Stair Climber Sprints', 8, '1 flight'), ex('Rope Climb', 4, '2'), ex('Rowing Sprints', 6, '50m')]),
       ],
     },
     diet: {
@@ -518,10 +518,10 @@ export const HEROES = [
       split: '5-day flow & controlled-power training',
       days: [
         day('Day 1', 'Full Body Strength', [ex('Back Squat', 4, '8'), ex('Overhead Press', 4, '8'), ex('Barbell Row', 4, '10')]),
-        day('Day 2', 'Breathing & Core Control', [ex('Weighted Breathing Holds', 4, '30s'), ex('Core Flow Circuit', 4, '10 min'), ex('Plank Variations', 3, '45s')]),
-        day('Day 3', 'Aerial Mobility', [ex('Aerial Ring Hold', 4, '20s'), ex('Mobility Flow', 1, '20 min'), ex('Handstand Practice', 4, '30s')]),
+        day('Day 2', 'Breathing & Core Control', [ex('Weighted Plank Hold', 4, '30s'), ex('Core Flow Circuit', 4, '10 min'), ex('Plank Variations', 3, '45s')]),
+        day('Day 3', 'Aerial Mobility', [ex('TRX Suspension Hold', 4, '20s'), ex('Mobility Flow', 1, '20 min'), ex('Handstand Hold', 4, '30s')]),
         day('Day 4', 'Explosive Power', [ex('Medicine Ball Throw', 4, '12'), ex('Box Jump', 4, '8'), ex('Kettlebell Swing', 4, '20')]),
-        day('Day 5', 'Endurance Flow', [ex('Tempo Run', 1, '4 miles'), ex('Yoga Cooldown Flow', 1, '20 min')]),
+        day('Day 5', 'Endurance Flow', [ex('Treadmill Tempo Run', 1, '4 miles'), ex('Yoga Cooldown Flow', 1, '20 min')]),
       ],
     },
     diet: {
@@ -546,11 +546,11 @@ export const HEROES = [
     workout: {
       split: '5-day maximal mass & structural strength',
       days: [
-        day('Day 1', 'Chest & Triceps — Heavy', [ex('Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Press', 5, '8')]),
+        day('Day 1', 'Chest & Triceps — Heavy', [ex('Barbell Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Bench Press', 5, '8')]),
         day('Day 2', 'Back & Biceps — Heavy', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10')]),
         day('Day 3', 'Legs — Maximal', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '12'), ex('Walking Lunge', 4, '12')]),
         day('Day 4', 'Shoulders & Traps', [ex('Overhead Press', 5, '6'), ex('Shrugs', 5, '15'), ex('Lateral Raise', 5, '15')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Atlas Stone Load', 5, '5'), ex('Yoke Walk', 5, '20m'), ex('Tire Flip', 5, '10')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 5, '5'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Tire Flip', 5, '10')]),
       ],
     },
     diet: {
@@ -575,11 +575,11 @@ export const HEROES = [
     workout: {
       split: '6-day tactical soldier training',
       days: [
-        day('Day 1', 'Strength — Upper', [ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Overhead Press', 4, '6')]),
+        day('Day 1', 'Strength — Upper', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Overhead Press', 4, '6')]),
         day('Day 2', 'Marksmanship & Stability', [ex('Prone Stability Holds', 4, '45s'), ex('Single-Arm Carry', 4, '40m'), ex('Anti-Rotation Press', 4, '12')]),
         day('Day 3', 'Strength — Lower', [ex('Front Squat', 5, '6'), ex('Deadlift', 4, '5'), ex('Box Jump', 4, '8')]),
-        day('Day 4', 'Combat Drills', [ex('Pad Combos', 6, '2 min'), ex('Disarm Drills', 5, '10'), ex('Reactive Sparring', 4, '3 min')]),
-        day('Day 5', 'Ruck & Endurance', [ex('Ruck March', 1, '5 miles'), ex('Sprint Finisher', 6, '100m')]),
+        day('Day 4', 'Combat Drills', [ex('Heavy Bag Combos', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 5', 'Ruck & Endurance', [ex('Weighted Vest Treadmill March', 1, '5 miles'), ex('Treadmill Sprint Finisher', 6, '100m')]),
         day('Day 6', 'Mobility & Recovery', [ex('Mobility Flow', 1, '20 min'), ex('Light Circuit', 3, '12')]),
       ],
     },
@@ -607,9 +607,9 @@ export const HEROES = [
       days: [
         day('Day 1', 'Back & Core — Draw Strength', [ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '10'), ex('Face Pull', 4, '15'), ex('Pallof Press', 4, '12')]),
         day('Day 2', 'Lower Body Stability', [ex('Pistol Squat', 4, '8'), ex('Single-Leg RDL', 4, '10'), ex('Balance Board Hold', 4, '30s')]),
-        day('Day 3', 'Agility & Parkour', [ex('Vault Drills', 5, '10'), ex('Sprint Intervals', 6, '60m'), ex('Tumbling', 4, '10')]),
+        day('Day 3', 'Agility & Plyometrics', [ex('Broad Jump', 5, '10'), ex('Treadmill Sprint Intervals', 6, '60m'), ex('Box Jump', 4, '10')]),
         day('Day 4', 'Full Body Strength', [ex('Deadlift', 5, '6'), ex('Overhead Press', 4, '8'), ex('Weighted Carry', 4, '40m')]),
-        day('Day 5', 'Breath Control & Precision', [ex('Isometric Draw Holds', 5, '20s'), ex('Breathing Drills', 4, '2 min'), ex('Target-Focus Circuit', 4, '10')]),
+        day('Day 5', 'Breath Control & Precision', [ex('Cable Draw Hold', 5, '20s'), ex('Breathing Drills', 4, '2 min'), ex('Single-Arm Cable Row', 4, '10')]),
       ],
     },
     diet: {
@@ -634,11 +634,11 @@ export const HEROES = [
     workout: {
       split: '5-day titan strength & power split',
       days: [
-        day('Day 1', 'Chest & Triceps — Maximal', [ex('Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Press', 5, '8')]),
+        day('Day 1', 'Chest & Triceps — Maximal', [ex('Barbell Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Bench Press', 5, '8')]),
         day('Day 2', 'Back & Biceps — Maximal', [ex('Deadlift', 6, '5'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10')]),
         day('Day 3', 'Legs — Maximal', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '15'), ex('Walking Lunge', 4, '15')]),
         day('Day 4', 'Shoulders — Cosmic Power', [ex('Overhead Press', 6, '5'), ex('Lateral Raise', 5, '15'), ex('Sledgehammer Slams', 5, '20')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Atlas Stone Load', 6, '5'), ex('Sled Push', 5, '30m'), ex('Farmer Carry', 5, '50m')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 6, '5'), ex('Sled Push', 5, '30m'), ex('Farmer Carry', 5, '50m')]),
       ],
     },
     diet: {
@@ -663,12 +663,12 @@ export const HEROES = [
     workout: {
       split: '6-day wrestler strength & grappling conditioning',
       days: [
-        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
-        day('Day 2', 'Grappling & Wrestling', [ex('Live Rolling', 6, '5 min'), ex('Takedown Drills', 5, '10'), ex('Grip Strength Work', 4, '30s')]),
+        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
+        day('Day 2', 'Grip & Wrestling Strength', [ex('Farmer Carry', 5, '50m'), ex('Plate Pinch Hold', 4, '30s'), ex('Weighted Dead Hang', 4, '20s')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '6'), ex('Leg Press', 4, '12'), ex('Walking Lunge', 4, '12')]),
         day('Day 4', 'Combat Conditioning', [ex('Heavy Bag Rounds', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Sled Push', 4, '20m')]),
         day('Day 5', 'Shoulders & Arms', [ex('Overhead Press', 5, '8'), ex('Barbell Curl', 5, '10'), ex('Skull Crusher', 5, '10')]),
-        day('Day 6', 'Strongman Power', [ex('Tire Flip', 5, '10'), ex('Yoke Walk', 5, '20m'), ex('Farmer Carry', 5, '50m')]),
+        day('Day 6', 'Strongman Power', [ex('Tire Flip', 5, '10'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Farmer Carry', 5, '50m')]),
       ],
     },
     diet: {
@@ -693,11 +693,11 @@ export const HEROES = [
     workout: {
       split: '5-day hybrid mass & explosive power',
       days: [
-        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
+        day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
         day('Day 2', 'Explosive Power', [ex('Box Jump', 5, '8'), ex('Medicine Ball Slam', 5, '12'), ex('Broad Jump', 4, '6')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '6'), ex('Leg Press', 4, '12'), ex('Bulgarian Split Squat', 4, '10')]),
-        day('Day 4', 'Climbing & Grip', [ex('Bouldering Circuit', 1, '45 min'), ex('Rope Climb', 5, '3'), ex('Fingerboard Hangs', 4, '15s')]),
-        day('Day 5', 'Predator Conditioning', [ex('Sprint Intervals', 8, '60m'), ex('Battle Ropes', 5, '30s'), ex('Bear Crawl', 4, '20m')]),
+        day('Day 4', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Rope Climb', 5, '3'), ex('Weighted Dead Hang', 4, '15s')]),
+        day('Day 5', 'Predator Conditioning', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Battle Ropes', 5, '30s'), ex('Bear Crawl', 4, '20m')]),
       ],
     },
     diet: {
@@ -723,10 +723,10 @@ export const HEROES = [
       split: '5-day aerial agility & explosive strength',
       days: [
         day('Day 1', 'Explosive Strength', [ex('Power Clean', 5, '3'), ex('Box Jump', 5, '6'), ex('Trap Bar Jump', 4, '5')]),
-        day('Day 2', 'Aerial Mobility', [ex('Balance Drills', 4, '30s'), ex('Core Flow Circuit', 4, '10 min'), ex('Handstand Practice', 4, '30s')]),
-        day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Bench Press', 4, '6')]),
-        day('Day 4', 'Combat & Reaction Drills', [ex('Pad Combos', 6, '2 min'), ex('Reaction Ball Drills', 5, '2 min'), ex('Agility Ladder', 5, '30s')]),
-        day('Day 5', 'Endurance Conditioning', [ex('Sprint Intervals', 8, '60m'), ex('Rowing Sprints', 5, '250m')]),
+        day('Day 2', 'Aerial Mobility', [ex('Balance Drills', 4, '30s'), ex('Core Flow Circuit', 4, '10 min'), ex('Handstand Hold', 4, '30s')]),
+        day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '6')]),
+        day('Day 4', 'Combat & Reaction Drills', [ex('Heavy Bag Combos', 6, '2 min'), ex('Reaction Ball Drills', 5, '2 min'), ex('Agility Ladder', 5, '30s')]),
+        day('Day 5', 'Endurance Conditioning', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Rowing Sprints', 5, '250m')]),
       ],
     },
     diet: {
@@ -751,11 +751,11 @@ export const HEROES = [
     workout: {
       split: '5-day gymnastic brawler conditioning',
       days: [
-        day('Day 1', 'Gymnastics & Tumbling', [ex('Handspring Drills', 5, '6'), ex('Roundoff Combos', 5, '8'), ex('Box Jump', 4, '8')]),
-        day('Day 2', 'Combat — Hammer Work', [ex('Heavy Bag Combos', 6, '2 min'), ex('Weighted Swing Drills', 5, '10'), ex('Footwork Ladder', 5, '30s')]),
-        day('Day 3', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Bench Press', 4, '8')]),
-        day('Day 4', 'Chaos Conditioning', [ex('Randomized Circuit', 1, '25 min'), ex('Battle Ropes', 4, '30s'), ex('Sprint Intervals', 6, '60m')]),
-        day('Day 5', 'Core & Balance', [ex('Balance Beam Work', 4, '10 min'), ex('Weighted Sit-Up', 4, '15'), ex('Handstand Hold', 4, '20s')]),
+        day('Day 1', 'Plyometric Power', [ex('Squat Jump', 5, '6'), ex('Broad Jump', 5, '8'), ex('Box Jump', 4, '8')]),
+        day('Day 2', 'Combat — Hammer Work', [ex('Heavy Bag Combos', 6, '2 min'), ex('Kettlebell Swing', 5, '10'), ex('Agility Ladder', 5, '30s')]),
+        day('Day 3', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '8')]),
+        day('Day 4', 'Chaos Conditioning', [ex('Randomized Gym Circuit', 1, '25 min'), ex('Battle Ropes', 4, '30s'), ex('Treadmill Sprint Intervals', 6, '60m')]),
+        day('Day 5', 'Core & Balance', [ex('Balance Board Hold', 4, '10 min'), ex('Weighted Sit-Up', 4, '15'), ex('Handstand Hold', 4, '20s')]),
       ],
     },
     diet: {
