@@ -1,15 +1,21 @@
-import { useCallback, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthProvider'
 import { getHeroById } from '../data/characterPlans'
 
-export function useSelectedHero() {
+const SelectedHeroContext = createContext(null)
+
+export function SelectedHeroProvider({ children }) {
   const { user } = useAuth()
   const [heroId, setHeroIdState] = useState(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (!user) return
+    if (!user) {
+      setHeroIdState(null)
+      setLoaded(false)
+      return
+    }
     let cancelled = false
 
     supabase
@@ -48,5 +54,13 @@ export function useSelectedHero() {
   )
 
   const hero = heroId ? getHeroById(heroId) : null
-  return { hero, heroId, setHeroId, loaded }
+  const value = { hero, heroId, setHeroId, loaded }
+
+  return <SelectedHeroContext.Provider value={value}>{children}</SelectedHeroContext.Provider>
+}
+
+export function useSelectedHero() {
+  const ctx = useContext(SelectedHeroContext)
+  if (!ctx) throw new Error('useSelectedHero must be used within a SelectedHeroProvider')
+  return ctx
 }

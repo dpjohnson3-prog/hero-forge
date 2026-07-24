@@ -10,7 +10,7 @@ import { useSelectedHero } from './hooks/useSelectedHero'
 
 function App() {
   const { user, loading } = useAuth()
-  const { heroId, loaded: heroLoaded } = useSelectedHero()
+  const { hero, heroId, loaded: heroLoaded } = useSelectedHero()
 
   if (loading) {
     return <div className="min-h-screen" />
@@ -24,7 +24,7 @@ function App() {
     return <div className="min-h-screen" />
   }
 
-  if (!heroId) {
+  if (!heroId || !hero) {
     return <ChooseHero />
   }
 
