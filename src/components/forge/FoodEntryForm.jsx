@@ -1,12 +1,20 @@
-import { useState } from 'react'
-import { Plus } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Camera, Loader2, Plus, Sparkles } from 'lucide-react'
+import { useFoodScan } from '../../hooks/useFoodScan'
 
 const EMPTY = { name: '', calories: '', protein: '', carbs: '', fat: '' }
 
 export default function FoodEntryForm({ onAdd }) {
   const [form, setForm] = useState(EMPTY)
+  const [isAiEstimate, setIsAiEstimate] = useState(false)
+  const [scanError, setScanError] = useState(null)
+  const { scanFood, scanning } = useFoodScan()
+  const fileInputRef = useRef(null)
 
-  const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
+  const update = (field) => (e) => {
+    setForm((f) => ({ ...f, [field]: e.target.value }))
+    setIsAiEstimate(false)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,13 +27,63 @@ export default function FoodEntryForm({ onAdd }) {
       fat: Number(form.fat) || 0,
     })
     setForm(EMPTY)
+    setIsAiEstimate(false)
+  }
+
+  const handleScan = async (e) => {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+
+    setScanError(null)
+    const { estimate, error } = await scanFood(file)
+    if (error) {
+      setScanError(error)
+      return
+    }
+    setForm({
+      name: estimate.name ?? '',
+      calories: estimate.calories != null ? String(Math.round(estimate.calories)) : '',
+      protein: estimate.protein != null ? String(Math.round(estimate.protein)) : '',
+      carbs: estimate.carbs != null ? String(Math.round(estimate.carbs)) : '',
+      fat: estimate.fat != null ? String(Math.round(estimate.fat)) : '',
+    })
+    setIsAiEstimate(true)
   }
 
   return (
     <form onSubmit={handleSubmit} className="comic-panel p-4 sm:p-5">
-      <h2 className="font-display mb-3 text-sm uppercase tracking-wider text-text-dim">
-        Log Food
-      </h2>
+      <div className="mb-3 flex items-center justify-between">
+        <h2 className="font-display text-sm uppercase tracking-wider text-text-dim">
+          Log Food
+        </h2>
+        <button
+          type="button"
+          disabled={scanning}
+          onClick={() => fileInputRef.current?.click()}
+          className="font-display flex items-center gap-1.5 rounded-md border border-border bg-panel-raised px-3 py-1.5 text-xs uppercase tracking-wide text-text-dim transition-colors hover:text-text disabled:opacity-50"
+        >
+          {scanning ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Camera className="h-3.5 w-3.5" />}
+          {scanning ? 'Scanning…' : 'Scan Food'}
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          onChange={handleScan}
+          className="hidden"
+        />
+      </div>
+
+      {isAiEstimate && (
+        <div className="mb-3 flex items-start gap-2 rounded-md border border-hero-gold bg-panel-raised px-3 py-2 text-xs text-hero-gold">
+          <Sparkles className="h-3.5 w-3.5 shrink-0" />
+          <span>AI estimate — review before saving. Photo-based calorie estimates are approximate.</span>
+        </div>
+      )}
+      {scanError && <p className="mb-3 text-xs text-hero-red">{scanError}</p>}
+
       <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-6">
         <input
           type="text"
