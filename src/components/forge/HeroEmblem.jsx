@@ -152,6 +152,100 @@ function Shazam({ className }) {
   )
 }
 
+function BlackWidow({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <polygon points="30,10 70,10 50,50 70,90 30,90 50,50" />
+    </svg>
+  )
+}
+
+function Storm({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round">
+      <path d="M10,35 Q30,20 50,35 T90,35" />
+      <path d="M10,50 Q30,35 50,50 T90,50" />
+      <path d="M10,65 Q30,50 50,65 T90,65" />
+    </svg>
+  )
+}
+
+function Colossus({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="7">
+      <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" />
+      <circle cx="50" cy="50" r="9" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function WinterSoldier({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <circle cx="50" cy="50" r="26" fill="none" stroke="currentColor" strokeWidth="8" />
+      <rect x="46" y="4" width="8" height="14" />
+      <rect x="46" y="82" width="8" height="14" />
+      <rect x="4" y="46" width="14" height="8" />
+      <rect x="82" y="46" width="14" height="8" />
+      <rect x="19" y="19" width="10" height="10" transform="rotate(45 24 24)" />
+      <rect x="71" y="71" width="10" height="10" transform="rotate(45 76 76)" />
+      <rect x="71" y="19" width="10" height="10" transform="rotate(45 76 24)" />
+      <rect x="19" y="71" width="10" height="10" transform="rotate(45 24 76)" />
+    </svg>
+  )
+}
+
+function GreenArrow({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <polygon points="50,8 72,45 58,45 58,92 42,92 42,45 28,45" />
+    </svg>
+  )
+}
+
+function Thanos({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <polygon points="50,6 82,26 82,64 50,94 18,64 18,26" fill="none" stroke="currentColor" strokeWidth="6" />
+      <polygon points="50,30 66,50 50,70 34,50" />
+    </svg>
+  )
+}
+
+function Bane({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <rect x="20" y="10" width="14" height="80" rx="7" fill="none" stroke="currentColor" strokeWidth="7" />
+      <rect x="66" y="10" width="14" height="80" rx="7" fill="none" stroke="currentColor" strokeWidth="7" />
+      <rect x="20" y="43" width="60" height="14" rx="7" />
+    </svg>
+  )
+}
+
+function Venom({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <polygon points="50,8 60,25 78,15 70,38 92,40 72,55 85,75 62,65 58,90 45,70 25,88 28,62 6,68 20,48 5,30 28,32 22,10 42,25" />
+    </svg>
+  )
+}
+
+function GreenGoblin({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+      <polygon points="50,15 95,70 55,60 50,90 45,60 5,70" />
+    </svg>
+  )
+}
+
+function HarleyQuinn({ className }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill="none" stroke="currentColor" strokeWidth="8">
+      <polygon points="50,12 82,50 50,88 18,50" />
+    </svg>
+  )
+}
+
 function Default({ className }) {
   return (
     <svg viewBox="0 0 100 100" className={className} fill="currentColor">
@@ -177,6 +271,16 @@ const EMBLEMS = {
   'iron-man': IronMan,
   'luke-cage': LukeCage,
   shazam: Shazam,
+  'black-widow': BlackWidow,
+  storm: Storm,
+  colossus: Colossus,
+  'winter-soldier': WinterSoldier,
+  'green-arrow': GreenArrow,
+  thanos: Thanos,
+  bane: Bane,
+  venom: Venom,
+  'green-goblin': GreenGoblin,
+  'harley-quinn': HarleyQuinn,
 }
 
 export default function HeroEmblem({ heroId, className = 'h-6 w-6', style }) {
