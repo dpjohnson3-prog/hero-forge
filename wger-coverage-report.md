@@ -1,0 +1,148 @@
+# wger.de Photo Coverage Report
+
+Matched: 48 / 140
+Unmatched: 92 / 140
+
+## Unmatched exercises (no confident match found)
+- Back Squat
+- Bulgarian Split Squat
+- Pistol Squat
+- Squat Jump
+- Trap Bar Jump
+- Single-Leg RDL
+- Weighted Step-Up
+- Overhead Press
+- Arnold Press
+- Landmine Press
+- Landmine Rotations
+- T-Bar Row
+- Dip Superset Row
+- Straight-Arm Lat Pulldown
+- Face Pull
+- Pull-Up
+- Muscle-Up
+- Front Lever Progression
+- Weighted Dead Hang
+- Hanging Leg Raise
+- Push-Up Finisher
+- Push-Up Variations
+- Plyo Push-Up
+- Dragon Flag
+- Prone Stability Holds
+- Weighted Sit-Up
+- Core Circuit
+- Core Finisher
+- Core Flow Circuit
+- Flutter Kicks
+- Anti-Rotation Press
+- Cable Rotation
+- Stability Ball Circuit
+- Tricep Pushdown
+- Lateral Raise
+- Leg Extension
+- Seated Calf Raise
+- Farmer Carry
+- Weighted Carry
+- Single-Arm Carry
+- Heavy Trap Bar Carry
+- Sled Drag
+- Kettlebell Swing
+- Kettlebell Complex
+- Rotational Throws
+- Box Jump
+- Broad Jump
+- Heavy Bag Combos
+- Heavy Bag Rounds
+- Heavy Bag Kick Rounds
+- Heavy Bag Knee Strikes
+- Heavy Bag Slashing Combos
+- Heavy Bag Work
+- Shadow Boxing
+- Speed Bag
+- Rope Climb
+- Battle Ropes
+- TRX Suspension Circuit
+- TRX Suspension Hold
+- Web-Swing Simulation (TRX)
+- Tire Flip
+- Sledgehammer Slams
+- Power Clean
+- Clean & Jerk
+- Snatch
+- Rowing Machine
+- Assault Bike Sprints
+- Stair Climber Sprints
+- Incline Treadmill Walk
+- Treadmill Sprint Finisher
+- Treadmill Sprint Intervals
+- Treadmill Tempo Run
+- Weighted Vest Treadmill March
+- Jump Rope
+- Bear Crawl
+- Sprawls
+- Animal Flow
+- Burpees
+- Hip Mobility Flow
+- Yoga Cooldown Flow
+- Agility Ladder
+- Cone Agility Drills
+- Reaction Ball Drills
+- Reactive Dodge Drills
+- Balance Board Hold
+- Balance Drills
+- Grip Crush Work
+- Plate Pinch Hold
+- Breathing Drills
+- Cable Draw Hold
+- Randomized Gym Circuit
+- Light Circuit
+
+## Matched exercises
+- Front Squat <- "Front Raises"
+- Zercher Deadlift <- "Deadlifts"
+- Deadlift <- "Deadlifts"
+- Romanian Deadlift <- "Deadlifts"
+- Trap Bar Deadlift <- "Deadlifts"
+- Nordic Curl <- "Leg Curl"
+- Walking Lunge <- "Dumbbell Lunges Walking"
+- Jump Lunge <- "Lunges"
+- Barbell Bench Press <- "Bench Press"
+- Close-Grip Bench Press <- "Bench Press"
+- Incline Dumbbell Press <- "Benchpress Dumbbells"
+- Incline Press <- "Bench Press"
+- Dumbbell Fly <- "Benchpress Dumbbells"
+- Cable Fly <- "Cable Cross-over"
+- Push Press <- "Bench Press"
+- Barbell Row <- "Barbell Ab Rollout"
+- Single-Arm Cable Row <- "Lateral Rows on Cable, One Armed"
+- Lat Pulldown <- "Close-grip Lat Pull Down"
+- Cable Pullover <- "Cable Cross-over"
+- Weighted Pull-Up <- "Pull-ups"
+- Archer Pull-Up <- "Pull-ups"
+- L-Sit Hold <- "Axe Hold"
+- Hanging Windshield Wiper <- "Sloper hanging"
+- Dips <- "Barbell Triceps Extension"
+- Weighted Dip <- "Barbell Triceps Extension"
+- Ring Dips <- "Dips"
+- Handstand Push-Up <- "Handstand Pushup"
+- Handstand Hold <- "Handstand Pushup"
+- Plank Complex <- "Plank"
+- Plank Variations <- "Plank"
+- Weighted Plank Complex <- "Weighted Crunch"
+- Weighted Plank Hold <- "Plank"
+- Hollow Body Hold <- "Hollow Hold"
+- Pallof Press <- "Bench Press"
+- Barbell Curl <- "Barbell Ab Rollout"
+- Skull Crusher <- "Leg Press"
+- Shrugs <- "Barbell Ab Rollout"
+- Leg Press <- "Bench Press"
+- Leg Curl <- "Leg Curl"
+- Calf Raise <- "Leg Curls (standing)"
+- Standing Calf Raise <- "Leg Curls (standing)"
+- Sled Push <- "Push Press"
+- Medicine Ball Slam <- "Medicine ball booklet crunch"
+- Medicine Ball Throw <- "Medicine ball booklet crunch"
+- Lateral Bounds <- "Lateral Raises"
+- Rowing Sprints <- "Rowing, T-bar"
+- Mobility Flow <- "Banded Ankle Mobility"
+- Deep Squat Hold Flow <- "Hollow Hold"

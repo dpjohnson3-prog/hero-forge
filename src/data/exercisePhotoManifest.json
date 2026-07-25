@@ -1,1 +1,338 @@
-{}
+{
+  "Front Squat": {
+    "file": "front-squat.png",
+    "wgerName": "Front Raises",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/256/b7def5bc-2352-499b-b9e5-fff741003831.png"
+  },
+  "Zercher Deadlift": {
+    "file": "zercher-deadlift.jpeg",
+    "wgerName": "Deadlifts",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
+  },
+  "Deadlift": {
+    "file": "deadlift.jpeg",
+    "wgerName": "Deadlifts",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
+  },
+  "Romanian Deadlift": {
+    "file": "romanian-deadlift.jpeg",
+    "wgerName": "Deadlifts",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
+  },
+  "Trap Bar Deadlift": {
+    "file": "trap-bar-deadlift.jpeg",
+    "wgerName": "Deadlifts",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/184/1709c405-620a-4d07-9658-fade2b66a2df.jpeg"
+  },
+  "Nordic Curl": {
+    "file": "nordic-curl.png",
+    "wgerName": "Leg Curl",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png"
+  },
+  "Walking Lunge": {
+    "file": "walking-lunge.png",
+    "wgerName": "Dumbbell Lunges Walking",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/113/Walking-lunges-1.png"
+  },
+  "Jump Lunge": {
+    "file": "jump-lunge.png",
+    "wgerName": "Lunges",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png"
+  },
+  "Barbell Bench Press": {
+    "file": "barbell-bench-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Close-Grip Bench Press": {
+    "file": "close-grip-bench-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Incline Dumbbell Press": {
+    "file": "incline-dumbbell-press.png",
+    "wgerName": "Benchpress Dumbbells",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/97/Dumbbell-bench-press-1.png"
+  },
+  "Incline Press": {
+    "file": "incline-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Dumbbell Fly": {
+    "file": "dumbbell-fly.png",
+    "wgerName": "Benchpress Dumbbells",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/97/Dumbbell-bench-press-1.png"
+  },
+  "Cable Fly": {
+    "file": "cable-fly.png",
+    "wgerName": "Cable Cross-over",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/71/Cable-crossover-2.png"
+  },
+  "Push Press": {
+    "file": "push-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Barbell Row": {
+    "file": "barbell-row.png",
+    "wgerName": "Barbell Ab Rollout",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/41/34b37423-269f-43d4-9d29-d2a90eeaa6b4.png"
+  },
+  "Single-Arm Cable Row": {
+    "file": "single-arm-cable-row.png",
+    "wgerName": "Lateral Rows on Cable, One Armed",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/349/9d969203-9cb6-4d47-9c31-fef53bfe1de5.png"
+  },
+  "Lat Pulldown": {
+    "file": "lat-pulldown.png",
+    "wgerName": "Close-grip Lat Pull Down",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/158/0d51a0f2-622f-434b-beb8-1a003c54712a.png"
+  },
+  "Cable Pullover": {
+    "file": "cable-pullover.png",
+    "wgerName": "Cable Cross-over",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/71/Cable-crossover-2.png"
+  },
+  "Weighted Pull-Up": {
+    "file": "weighted-pull-up.jpg",
+    "wgerName": "Pull-ups",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Imobard",
+    "sourceUrl": "https://wger.de/media/exercise-images/475/b0554016-16fd-4dbe-be47-a2a17d16ae0e.jpg"
+  },
+  "Archer Pull-Up": {
+    "file": "archer-pull-up.jpg",
+    "wgerName": "Pull-ups",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Imobard",
+    "sourceUrl": "https://wger.de/media/exercise-images/475/b0554016-16fd-4dbe-be47-a2a17d16ae0e.jpg"
+  },
+  "L-Sit Hold": {
+    "file": "l-sit-hold.png",
+    "wgerName": "Axe Hold",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/31/92f6451b-f89d-49d6-9531-8970ea420d97.png"
+  },
+  "Hanging Windshield Wiper": {
+    "file": "hanging-windshield-wiper.png",
+    "wgerName": "Sloper hanging",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/804/6f4b8bd9-fa05-49de-870b-1f79b595ce89.png"
+  },
+  "Dips": {
+    "file": "dips.png",
+    "wgerName": "Barbell Triceps Extension",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/50/695ced5c-9961-4076-add2-cb250d01089e.png"
+  },
+  "Weighted Dip": {
+    "file": "weighted-dip.png",
+    "wgerName": "Barbell Triceps Extension",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/50/695ced5c-9961-4076-add2-cb250d01089e.png"
+  },
+  "Ring Dips": {
+    "file": "ring-dips.png",
+    "wgerName": "Dips",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "cshep442",
+    "sourceUrl": "https://wger.de/media/exercise-images/194/34600351-8b0b-4cb0-8daa-583537be15b0.png"
+  },
+  "Handstand Push-Up": {
+    "file": "handstand-push-up.png",
+    "wgerName": "Handstand Pushup",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/282/f6121ac9-330e-4ed7-8219-91ce246bf871.png"
+  },
+  "Handstand Hold": {
+    "file": "handstand-hold.png",
+    "wgerName": "Handstand Pushup",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/282/f6121ac9-330e-4ed7-8219-91ce246bf871.png"
+  },
+  "Plank Complex": {
+    "file": "plank-complex.png",
+    "wgerName": "Plank",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "utkb",
+    "sourceUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png"
+  },
+  "Plank Variations": {
+    "file": "plank-variations.png",
+    "wgerName": "Plank",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "utkb",
+    "sourceUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png"
+  },
+  "Weighted Plank Complex": {
+    "file": "weighted-plank-complex.jpg",
+    "wgerName": "Weighted Crunch",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "AlucardEvil40",
+    "sourceUrl": "https://wger.de/media/exercise-images/1648/63ae02d6-6dd9-4e9e-84da-d4905e78a33c.jpg"
+  },
+  "Weighted Plank Hold": {
+    "file": "weighted-plank-hold.png",
+    "wgerName": "Plank",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "utkb",
+    "sourceUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png"
+  },
+  "Hollow Body Hold": {
+    "file": "hollow-body-hold.png",
+    "wgerName": "Hollow Hold",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/297/b10d3341-baa8-49ab-b462-5b3529389aac.png"
+  },
+  "Pallof Press": {
+    "file": "pallof-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Barbell Curl": {
+    "file": "barbell-curl.png",
+    "wgerName": "Barbell Ab Rollout",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/41/34b37423-269f-43d4-9d29-d2a90eeaa6b4.png"
+  },
+  "Skull Crusher": {
+    "file": "skull-crusher.webp",
+    "wgerName": "Leg Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/371/d2136f96-3a43-4d4c-9944-1919c4ca1ce1.webp"
+  },
+  "Shrugs": {
+    "file": "shrugs.png",
+    "wgerName": "Barbell Ab Rollout",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/41/34b37423-269f-43d4-9d29-d2a90eeaa6b4.png"
+  },
+  "Leg Press": {
+    "file": "leg-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Leg Curl": {
+    "file": "leg-curl.png",
+    "wgerName": "Leg Curl",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png"
+  },
+  "Calf Raise": {
+    "file": "calf-raise.png",
+    "wgerName": "Leg Curls (standing)",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/118/standing-leg-curls-large-1.png"
+  },
+  "Standing Calf Raise": {
+    "file": "standing-calf-raise.png",
+    "wgerName": "Leg Curls (standing)",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/118/standing-leg-curls-large-1.png"
+  },
+  "Sled Push": {
+    "file": "sled-push.jpg",
+    "wgerName": "Push Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/478/70a2d72c-a822-45f3-8de2-54ea85951b84.jpg"
+  },
+  "Medicine Ball Slam": {
+    "file": "medicine-ball-slam.png",
+    "wgerName": "Medicine ball booklet crunch",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/976/94649ea6-bf58-4fd9-90c1-b2ec96ee20cd.png"
+  },
+  "Medicine Ball Throw": {
+    "file": "medicine-ball-throw.png",
+    "wgerName": "Medicine ball booklet crunch",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/976/94649ea6-bf58-4fd9-90c1-b2ec96ee20cd.png"
+  },
+  "Lateral Bounds": {
+    "file": "lateral-bounds.png",
+    "wgerName": "Lateral Raises",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/148/lateral-dumbbell-raises-large-2.png"
+  },
+  "Rowing Sprints": {
+    "file": "rowing-sprints.png",
+    "wgerName": "Rowing, T-bar",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/106/T-bar-row-1.png"
+  },
+  "Mobility Flow": {
+    "file": "mobility-flow.png",
+    "wgerName": "Banded Ankle Mobility",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Davidgj32",
+    "sourceUrl": "https://wger.de/media/exercise-images/1865/c2c9848e-5094-4ed9-bd81-0831b6551483.png"
+  },
+  "Deep Squat Hold Flow": {
+    "file": "deep-squat-hold-flow.png",
+    "wgerName": "Hollow Hold",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/297/b10d3341-baa8-49ab-b462-5b3529389aac.png"
+  }
+}
