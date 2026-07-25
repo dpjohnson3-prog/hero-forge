@@ -11,16 +11,29 @@
 //   node scripts/fetch-wger-photos.mjs
 //
 // Safe to re-run: skips exercises that already have a downloaded photo.
+//
+// Endpoint verified directly against the wger-project/wger source on GitHub
+// (wger/exercises/api/views.py, filtersets.py, serializers.py, wger/urls.py)
+// on 2026-07-25 — there is no /api/v2/exercise/search/ endpoint in the
+// current API (that was a bad assumption in the first version of this
+// script, which is why every request 404'd). The real search lives on the
+// `exerciseinfo` endpoint via the `name__search` / `name__exact` filters
+// defined in ExerciseFilterSet, e.g.:
+//   GET /api/v2/exerciseinfo/?name__search=bench+press&language__code=en&format=json
+// which returns a standard DRF paginated body: {count, next, previous, results: [...]}
+// where each result already embeds `images` and `translations` (no second
+// request needed per exercise).
 
 import { EXERCISES } from '../src/data/exerciseLibrary.js'
 import { writeFile, mkdir } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 
 const API = 'https://wger.de/api/v2'
 const OUT_IMG_DIR = path.resolve('src/assets/exercise-photos')
 const OUT_MANIFEST = path.resolve('src/data/exercisePhotoManifest.json')
 const OUT_REPORT = path.resolve('wger-coverage-report.md')
+const HEADERS = { 'User-Agent': 'HeroForge-photo-fetch/1.0 (one-time dataset build script)' }
 
 // Known naming differences between our library and wger's English exercise
 // names. Add to this if the console output below shows a near-miss.
@@ -72,23 +85,38 @@ function slugify(name) {
     .replace(/(^-|-$)/g, '')
 }
 
-async function searchWger(term) {
-  const url = `${API}/exercise/search/?term=${encodeURIComponent(term)}&language=en&format=json`
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`search failed for "${term}": HTTP ${res.status}`)
-  const data = await res.json()
-  return data.suggestions ?? data.results ?? []
-}
-
-async function getExerciseInfo(baseId) {
-  const url = `${API}/exerciseinfo/${baseId}/?format=json`
-  const res = await fetch(url)
-  if (!res.ok) return null
+async function getJson(url) {
+  const res = await fetch(url, { headers: HEADERS })
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`)
   return res.json()
 }
 
+async function getEnglishLanguageId() {
+  const data = await getJson(`${API}/language/?format=json&limit=100`)
+  const en = (data.results ?? []).find((l) => l.short_name === 'en')
+  if (!en) throw new Error('Could not find English in /api/v2/language/ — check the response shape manually.')
+  return en.id
+}
+
+async function searchWger(term) {
+  const url = `${API}/exerciseinfo/?name__search=${encodeURIComponent(term)}&language__code=en&limit=5&format=json`
+  const data = await getJson(url)
+  if ((data.results ?? []).length > 0) return data.results
+
+  // Fall back to the non-fuzzy (icontains) filter — matters on non-Postgres
+  // wger deployments where name__search silently degrades to exact match.
+  const exactUrl = `${API}/exerciseinfo/?name__exact=${encodeURIComponent(term)}&language__code=en&limit=5&format=json`
+  const exactData = await getJson(exactUrl)
+  return exactData.results ?? []
+}
+
+function pickEnglishTranslation(exerciseInfo, englishId) {
+  const translations = exerciseInfo.translations ?? []
+  return translations.find((t) => t.language === englishId) ?? translations[0] ?? null
+}
+
 async function downloadImage(url, destPath) {
-  const res = await fetch(url)
+  const res = await fetch(url, { headers: HEADERS })
   if (!res.ok) throw new Error(`image download failed: HTTP ${res.status}`)
   const buf = Buffer.from(await res.arrayBuffer())
   await writeFile(destPath, buf)
@@ -97,9 +125,13 @@ async function downloadImage(url, destPath) {
 async function main() {
   await mkdir(OUT_IMG_DIR, { recursive: true })
 
+  console.log('Resolving English language id from /api/v2/language/ ...')
+  const englishId = await getEnglishLanguageId()
+  console.log(`English language id = ${englishId}\n`)
+
   let manifest = {}
   if (existsSync(OUT_MANIFEST)) {
-    manifest = JSON.parse(await import('node:fs').then((fs) => fs.readFileSync(OUT_MANIFEST, 'utf8')))
+    manifest = JSON.parse(readFileSync(OUT_MANIFEST, 'utf8'))
   }
 
   const names = Object.keys(EXERCISES)
@@ -114,13 +146,15 @@ async function main() {
     }
 
     const candidates = ALIASES[name] ?? [name]
-    let found = null
+    let exerciseInfo = null
+    let matchedTerm = null
 
     for (const term of candidates) {
       try {
         const results = await searchWger(term)
         if (results.length > 0) {
-          found = { term, result: results[0] }
+          exerciseInfo = results[0]
+          matchedTerm = term
           break
         }
       } catch (err) {
@@ -129,17 +163,16 @@ async function main() {
       await new Promise((r) => setTimeout(r, 150))
     }
 
-    if (!found) {
+    if (!exerciseInfo) {
       console.log(`[MISS] ${name}`)
       unmatched.push(name)
       continue
     }
 
-    const baseId = found.result.base_id ?? found.result.data?.base_id ?? found.result.id
-    const wgerName = found.result.name ?? found.result.data?.name ?? found.term
+    const translation = pickEnglishTranslation(exerciseInfo, englishId)
+    const wgerName = translation?.name ?? matchedTerm
 
-    const info = await getExerciseInfo(baseId)
-    const images = info?.images ?? []
+    const images = exerciseInfo.images ?? []
     const mainImage = images.find((img) => img.is_main) ?? images[0]
 
     if (!mainImage) {
@@ -164,8 +197,8 @@ async function main() {
     manifest[name] = {
       file: fileName,
       wgerName,
-      license: mainImage.license_title ?? mainImage.license ?? 'CC-BY-SA 4.0',
-      licenseAuthor: mainImage.license_author ?? 'wger.de contributors',
+      license: mainImage.license_title || 'CC-BY-SA 4.0',
+      licenseAuthor: mainImage.license_author || 'wger.de contributors',
       sourceUrl: mainImage.image,
     }
 
