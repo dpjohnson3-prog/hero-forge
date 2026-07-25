@@ -1,10 +1,12 @@
 import { X } from 'lucide-react'
 import ExerciseIcon from './ExerciseIcon'
+import { getExercisePhoto } from '../../data/exercisePhotos'
 import { getExerciseInfo } from '../../data/exerciseLibrary'
 
 export default function ExerciseModal({ exercise, onClose }) {
   if (!exercise) return null
   const info = getExerciseInfo(exercise.name)
+  const photo = getExercisePhoto(exercise.name)
 
   return (
     <div
@@ -31,9 +33,18 @@ export default function ExerciseModal({ exercise, onClose }) {
           {exercise.sets} sets × {exercise.reps}
         </p>
 
-        <div className="mx-auto mb-4 flex h-40 w-40 items-center justify-center rounded-lg border border-border bg-panel-raised">
-          <ExerciseIcon pose={info.pose} equipment={info.equipment} className="h-32 w-32 text-hero-gold" />
-        </div>
+        {photo ? (
+          <div className="mx-auto mb-1 w-full max-w-[240px]">
+            <img src={photo.url} alt={exercise.name} className="aspect-square w-full rounded-lg border border-border object-cover" />
+            <p className="mt-1.5 text-center text-[10px] text-text-dim">
+              Photo: {photo.licenseAuthor} via wger.de, {photo.license}
+            </p>
+          </div>
+        ) : (
+          <div className="mx-auto mb-4 flex h-40 w-40 items-center justify-center rounded-lg border border-border bg-panel-raised">
+            <ExerciseIcon pose={info.pose} equipment={info.equipment} className="h-32 w-32 text-hero-gold" />
+          </div>
+        )}
 
         <p className="text-sm text-text-dim">{info.cue}</p>
       </div>
