@@ -1,85 +1,159 @@
 # wger.de Photo Coverage Report
 
-Status as of the manual quality review (2026-07-25): **15 / 140 confirmed.**
+Matched: 28 / 140
+Missed:  112 / 140
 
-The script's second run found 48 candidate matches, but a full hand review
-against wger.de's own images (comparing each candidate's actual photo/name to
-our exerciseLibrary.js form cue) found that only 15 were genuinely the same
-exercise. The other 33 were false positives from the fuzzy search matching on
-a shared generic word (e.g. "Barbell", "Press", "Hold", "Leg") rather than the
-exercise actually being the same movement — see examples below. Those 33 were
-removed from the manifest rather than shipped, since a real photo of the
-wrong exercise is worse than the stick-figure fallback.
+**New matches (not already cached in the manifest) still need a human sanity check** —
+the isPlausibleMatch() gate blocks the obvious false positives seen in the first run
+(shared generic words only) but is not a guarantee of correctness. Compare each new
+"X <- Y" line below against the form cue in exerciseLibrary.js before trusting it.
 
-The script (scripts/fetch-wger-photos.mjs) has since been rewritten with a
-stricter token-overlap validation gate intended to catch this whole class of
-false positive automatically, plus a report that will break misses down by
-reason (no candidates / rejected by the gate / matched but no photo /
-download failed) instead of one flat "unmatched" bucket. That version hasn't
-been run against the live API yet — this file reflects the manual review of
-the *previous* run's output, not a fresh automated run.
+## No candidates found at all (32)
+- Dip Superset Row
+- Prone Stability Holds
+- Core Circuit
+- Core Finisher
+- Core Flow Circuit
+- Stability Ball Circuit
+- Heavy Bag Combos
+- Heavy Bag Rounds
+- Heavy Bag Kick Rounds
+- Heavy Bag Knee Strikes
+- Heavy Bag Slashing Combos
+- Heavy Bag Work
+- Shadow Boxing
+- TRX Suspension Circuit
+- Web-Swing Simulation (TRX)
+- Tire Flip
+- Sledgehammer Slams
+- Assault Bike Sprints
+- Stair Climber Sprints
+- Weighted Vest Treadmill March
+- Sprawls
+- Animal Flow
+- Hip Mobility Flow
+- Yoga Cooldown Flow
+- Agility Ladder
+- Cone Agility Drills
+- Reactive Dodge Drills
+- Balance Board Hold
+- Grip Crush Work
+- Cable Draw Hold
+- Randomized Gym Circuit
+- Light Circuit
 
-## Confirmed correct (15)
+## Candidates found, but rejected by the plausibility check (41)
+- Back Squat
+- Zercher Deadlift
+- Trap Bar Jump
+- Trap Bar Deadlift
+- Jump Lunge
+- Incline Dumbbell Press
+- Incline Press
+- Dumbbell Fly
+- Overhead Press
+- Straight-Arm Lat Pulldown
+- Front Lever Progression
+- L-Sit Hold
+- Hanging Windshield Wiper
+- Push-Up Finisher
+- Push-Up Variations
+- Plyo Push-Up
+- Weighted Plank Complex
+- Anti-Rotation Press
+- Pallof Press
+- Weighted Carry
+- Single-Arm Carry
+- Heavy Trap Bar Carry
+- Sled Drag
+- Kettlebell Complex
+- Medicine Ball Slam
+- Medicine Ball Throw
+- Broad Jump
+- Lateral Bounds
+- Speed Bag
+- Rope Climb
+- TRX Suspension Hold
+- Rowing Sprints
+- Incline Treadmill Walk
+- Treadmill Sprint Finisher
+- Treadmill Sprint Intervals
+- Treadmill Tempo Run
+- Mobility Flow
+- Deep Squat Hold Flow
+- Reaction Ball Drills
+- Balance Drills
+- Breathing Drills
 
-- Deadlift <- "Deadlifts"
-- Walking Lunge <- "Dumbbell Lunges Walking"
-- Barbell Bench Press <- "Bench Press"
-- Cable Fly <- "Cable Cross-over"
-- Single-Arm Cable Row <- "Lateral Rows on Cable, One Armed"
-- Lat Pulldown <- "Close-grip Lat Pull Down"
-- Weighted Pull-Up <- "Pull-ups"
-- Ring Dips <- "Dips"
-- Handstand Push-Up <- "Handstand Pushup"
-- Handstand Hold <- "Handstand Pushup"
-- Plank Complex <- "Plank"
-- Plank Variations <- "Plank"
-- Weighted Plank Hold <- "Plank"
-- Hollow Body Hold <- "Hollow Hold"
-- Leg Curl <- "Leg Curl"
+## Matched a plausible exercise, but it has no photo uploaded (39)
+- Squat Jump <- "Squat Jumps"
+- Romanian Deadlift <- "Romanian Deadlift"
+- Single-Leg RDL <- "Single Leg RDL"
+- Weighted Step-Up <- "Weighted Step-ups"
+- Arnold Press <- "Arnold Shoulder Press"
+- Landmine Press <- "Landmine press"
+- Landmine Rotations <- "Landmine Rotation"
+- Barbell Row <- "Row"
+- Face Pull <- "Facepull"
+- Pull-Up <- "High Pull"
+- Archer Pull-Up <- "Archer Pull Up"
+- Muscle-Up <- "Muscle up"
+- Weighted Dead Hang <- "Deadhang"
+- Hanging Leg Raise <- "Hanging Leg Raises"
+- Dragon Flag <- "Dragon-flag"
+- Weighted Sit-Up <- "Sit-ups"
+- Flutter Kicks <- "Flutter Kicks"
+- Cable Rotation <- "Cable External Rotation"
+- Barbell Curl <- "Barbell Reverse Wrist Curl"
+- Skull Crusher <- "Skullcrusher Dumbbells"
+- Lateral Raise <- "Bent-over Lateral Raises"
+- Leg Extension <- "Single Leg Extension"
+- Calf Raise <- "Sitting Calf Raises"
+- Standing Calf Raise <- "Sitting Calf Raises"
+- Seated Calf Raise <- "Sitting Calf Raises"
+- Farmer Carry <- "Dumbbell farmer's carry"
+- Sled Push <- "Sled Push"
+- Kettlebell Swing <- "2 Handed Kettlebell Swing"
+- Rotational Throws <- "Bent over row to external rotation"
+- Box Jump <- "box jumps"
+- Battle Ropes <- "Battle Ropes"
+- Power Clean <- "Power Clean"
+- Clean & Jerk <- "Clean and Jerk OL"
+- Snatch <- "Snatch"
+- Rowing Machine <- "Leverage Machine Iso Row"
+- Jump Rope <- "Jump rope: basic jumps"
+- Bear Crawl <- "Bear crawl pull through"
+- Burpees <- "Burpees"
+- Plate Pinch Hold <- "Plate Pinch Hold"
 
-## Removed as false positives (33) — reverted to the stick-figure diagram
+## Matched and had a photo, but the download failed (0)
 
-Format: our exercise <- what wger actually returned <- why it's wrong.
-
-- Front Squat <- "Front Raises" — different exercise (leg vs shoulder), matched on "Front"
-- Zercher Deadlift <- "Deadlifts" — photo won't show the defining elbow-crook bar position
-- Romanian Deadlift <- "Deadlifts" — photo shows a different starting position than the form cue describes
-- Trap Bar Deadlift <- "Deadlifts" — photo shows a straight bar, not a trap/hex bar
-- Nordic Curl <- "Leg Curl" — bodyweight floor exercise vs a machine, completely different
-- Jump Lunge <- "Lunges" — photo won't show the explosive jump that defines this variant
-- Close-Grip Bench Press <- "Bench Press" — photo won't show the narrow grip the cue calls out
-- Incline Dumbbell Press <- "Benchpress Dumbbells" — likely a flat bench, contradicts "incline"
-- Incline Press <- "Bench Press" — flat barbell bench shown for an incline-labeled exercise
-- Dumbbell Fly <- "Benchpress Dumbbells" — a press movement, not a fly
-- Push Press <- "Bench Press" — standing overhead press vs lying chest press, matched on "Press" only
-- Barbell Row <- "Barbell Ab Rollout" — core exercise vs back exercise, matched on "Barbell" only
-- Cable Pullover <- "Cable Cross-over" — different movement pattern despite both being cable exercises
-- Archer Pull-Up <- "Pull-ups" — photo won't show the defining asymmetric arm position
-- L-Sit Hold <- "Axe Hold" — unrelated grip-strength hold, not the gymnastic L-sit
-- Hanging Windshield Wiper <- "Sloper hanging" — rock-climbing term, unrelated
-- Dips <- "Barbell Triceps Extension" — different equipment and movement entirely
-- Weighted Dip <- "Barbell Triceps Extension" — same issue
-- Weighted Plank Complex <- "Weighted Crunch" — spinal flexion vs a static hold, different families
-- Pallof Press <- "Bench Press" — standing anti-rotation core exercise vs lying chest press
-- Barbell Curl <- "Barbell Ab Rollout" — bicep vs core, matched on "Barbell" only
-- Skull Crusher <- "Leg Press" — completely unrelated
-- Shrugs <- "Barbell Ab Rollout" — traps vs core, matched on "Barbell" only
-- Leg Press <- "Bench Press" — leg machine vs chest press, matched on "Press" only
-- Calf Raise <- "Leg Curls (standing)" — different exercise
-- Standing Calf Raise <- "Leg Curls (standing)" — same issue
-- Sled Push <- "Push Press" — different equipment and movement, matched on "Push"
-- Medicine Ball Slam <- "Medicine ball booklet crunch" — explosive slam vs a seated ab crunch
-- Medicine Ball Throw <- "Medicine ball booklet crunch" — same issue
-- Lateral Bounds <- "Lateral Raises" — explosive jumping vs a shoulder isolation exercise
-- Rowing Sprints <- "Rowing, T-bar" — cardio machine vs a strength exercise, matched on "Rowing"
-- Mobility Flow <- "Banded Ankle Mobility" — one narrow drill standing in for a general concept
-- Deep Squat Hold Flow <- "Hollow Hold" — standing squat hold vs a lying ab exercise
-
-## Still unmatched, reason unknown (92)
-
-These were unmatched in the previous run, but that run's report didn't record
-*why* (no candidates vs. matched-but-no-photo vs. something else) — only
-console output did, which wasn't saved. The rewritten script now tracks this
-per-exercise. Re-run scripts/fetch-wger-photos.mjs to get an accurate
-breakdown for these; see the tool's own coverage-report output for the
-current list.
+## Matched exercises
+- Front Squat <- "Front Squats" (NEW — please review)
+- Bulgarian Split Squat <- "Bulgarian split squats left" (NEW — please review)
+- Pistol Squat <- "Pistol Squat" (NEW — please review)
+- Deadlift <- "Deadlifts" (already verified, cached)
+- Nordic Curl <- "Reverse Nordic Curl" (NEW — please review)
+- Walking Lunge <- "Dumbbell Lunges Walking" (already verified, cached)
+- Barbell Bench Press <- "Bench Press" (already verified, cached)
+- Close-Grip Bench Press <- "Bench Press" (NEW — please review)
+- Cable Fly <- "Cable Cross-over" (already verified, cached)
+- Push Press <- "Push Press" (NEW — please review)
+- T-Bar Row <- "Rowing, T-bar" (NEW — please review)
+- Single-Arm Cable Row <- "Lateral Rows on Cable, One Armed" (already verified, cached)
+- Lat Pulldown <- "Close-grip Lat Pull Down" (already verified, cached)
+- Cable Pullover <- "Cable Cross-over" (NEW — please review)
+- Weighted Pull-Up <- "Pull-ups" (already verified, cached)
+- Dips <- "Dips" (NEW — please review)
+- Weighted Dip <- "Dips" (NEW — please review)
+- Ring Dips <- "Dips" (already verified, cached)
+- Handstand Push-Up <- "Handstand Pushup" (already verified, cached)
+- Handstand Hold <- "Handstand Pushup" (already verified, cached)
+- Plank Complex <- "Plank" (already verified, cached)
+- Plank Variations <- "Plank" (already verified, cached)
+- Weighted Plank Hold <- "Plank" (already verified, cached)
+- Hollow Body Hold <- "Hollow Hold" (already verified, cached)
+- Tricep Pushdown <- "Tricep Pushdown on Cable" (NEW — please review)
+- Shrugs <- "Shoulder Shrug" (NEW — please review)
+- Leg Press <- "Calf Press Using Leg Press Machine" (NEW — please review)
+- Leg Curl <- "Leg Curl" (already verified, cached)

@@ -103,5 +103,96 @@
     "license": "CC-BY-SA 4.0",
     "licenseAuthor": "Franpol",
     "sourceUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png"
+  },
+  "Front Squat": {
+    "file": "front-squat.png",
+    "wgerName": "Front Squats",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/191/Front-squat-1-857x1024.png"
+  },
+  "Bulgarian Split Squat": {
+    "file": "bulgarian-split-squat.png",
+    "wgerName": "Bulgarian split squats left",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Franpol",
+    "sourceUrl": "https://wger.de/media/exercise-images/988/6283b258-a4d7-4833-84f7-a38987022d3d.png"
+  },
+  "Pistol Squat": {
+    "file": "pistol-squat.jpg",
+    "wgerName": "Pistol Squat",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wakanda90",
+    "sourceUrl": "https://wger.de/media/exercise-images/456/3b681e59-377b-40db-9113-ca5873ce084b.jpg"
+  },
+  "Nordic Curl": {
+    "file": "nordic-curl.png",
+    "wgerName": "Reverse Nordic Curl",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/909/159222d9-c1e4-46ae-89ee-6a2dfaab978d.png"
+  },
+  "Close-Grip Bench Press": {
+    "file": "close-grip-bench-press.png",
+    "wgerName": "Bench Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/192/Bench-press-1.png"
+  },
+  "Push Press": {
+    "file": "push-press.jpg",
+    "wgerName": "Push Press",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "philip",
+    "sourceUrl": "https://wger.de/media/exercise-images/478/70a2d72c-a822-45f3-8de2-54ea85951b84.jpg"
+  },
+  "T-Bar Row": {
+    "file": "t-bar-row.png",
+    "wgerName": "Rowing, T-bar",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/106/T-bar-row-1.png"
+  },
+  "Cable Pullover": {
+    "file": "cable-pullover.png",
+    "wgerName": "Cable Cross-over",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "Everkinetic",
+    "sourceUrl": "https://wger.de/media/exercise-images/71/Cable-crossover-2.png"
+  },
+  "Dips": {
+    "file": "dips.png",
+    "wgerName": "Dips",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "cshep442",
+    "sourceUrl": "https://wger.de/media/exercise-images/194/34600351-8b0b-4cb0-8daa-583537be15b0.png"
+  },
+  "Weighted Dip": {
+    "file": "weighted-dip.png",
+    "wgerName": "Dips",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "cshep442",
+    "sourceUrl": "https://wger.de/media/exercise-images/194/34600351-8b0b-4cb0-8daa-583537be15b0.png"
+  },
+  "Tricep Pushdown": {
+    "file": "tricep-pushdown.png",
+    "wgerName": "Tricep Pushdown on Cable",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/805/7a437824-e2cc-46e1-804a-674f0ea31d25.png"
+  },
+  "Shrugs": {
+    "file": "shrugs.jpg",
+    "wgerName": "Shoulder Shrug",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/570/68b4a33f-40f1-4dda-b56c-a2e20ed13903.jpg"
+  },
+  "Leg Press": {
+    "file": "leg-press.png",
+    "wgerName": "Calf Press Using Leg Press Machine",
+    "license": "CC-BY-SA 4.0",
+    "licenseAuthor": "wger.de contributors",
+    "sourceUrl": "https://wger.de/media/exercise-images/146/8b284904-d072-4381-a256-4c81d8fd9c1f.png"
   }
 }
