@@ -1,12 +1,14 @@
 import { X } from 'lucide-react'
 import ExerciseIcon from './ExerciseIcon'
 import { getExercisePhoto } from '../../data/exercisePhotos'
+import { getExerciseVideo } from '../../data/exerciseVideos'
 import { getExerciseInfo } from '../../data/exerciseLibrary'
 
 export default function ExerciseModal({ exercise, onClose }) {
   if (!exercise) return null
   const info = getExerciseInfo(exercise.name)
-  const photo = getExercisePhoto(exercise.name)
+  const video = getExerciseVideo(exercise.name)
+  const photo = video ? null : getExercisePhoto(exercise.name)
 
   return (
     <div
@@ -33,7 +35,21 @@ export default function ExerciseModal({ exercise, onClose }) {
           {exercise.sets} sets × {exercise.reps}
         </p>
 
-        {photo ? (
+        {video ? (
+          <div className="mx-auto mb-1 w-full max-w-[240px]">
+            <video
+              src={video.url}
+              controls
+              muted
+              playsInline
+              loop
+              className="aspect-square w-full rounded-lg border border-border bg-panel-raised object-cover"
+            />
+            <p className="mt-1.5 text-center text-[10px] text-text-dim">
+              Video: {video.licenseAuthor} via wger.de, {video.license}
+            </p>
+          </div>
+        ) : photo ? (
           <div className="mx-auto mb-1 w-full max-w-[240px]">
             <img src={photo.url} alt={exercise.name} className="aspect-square w-full rounded-lg border border-border object-cover" />
             <p className="mt-1.5 text-center text-[10px] text-text-dim">

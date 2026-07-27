@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// STEP 2 of the round-3 photo pipeline. Reads the candidates staged by
+// STEP 2 of the round-3 photo/video pipeline. Reads the candidates staged by
 // fetch-wger-candidates.mjs and asks Claude's vision model to confirm each
 // one actually shows the exercise it's supposed to — the same judgment call
 // done by hand in rounds 1-2 (open the image, compare it to the form cue),
@@ -20,26 +20,41 @@
 //   export ANTHROPIC_API_KEY=sk-ant-...
 //   node scripts/verify-wger-candidates.mjs
 //
-// This makes one real (billed) API call per staged candidate image. With the
-// default cap of 2 candidates per exercise from step 1, that's at most
-// ~2x the number of still-unmatched exercises — check the console output
-// from fetch-wger-candidates.mjs for the actual count before running this.
+// Video candidates are verified by extracting a single representative frame
+// with ffmpeg and running it through the exact same vision check as photos.
+// Needs ffmpeg on PATH (brew install ffmpeg / apt install ffmpeg) — if it's
+// not found, video candidates are skipped (logged, not silently dropped)
+// rather than failing the whole run; photo verification is unaffected.
+//
+// This makes one real (billed) API call per staged candidate. With the
+// default cap of ~2 image + 1 video candidate per exercise from step 1,
+// check the console output from fetch-wger-candidates.mjs for the actual
+// count before running this.
 //
 // Output:
-//   src/assets/exercise-photos/<slug>.<ext>   photos that passed, copied in
-//   src/data/exercisePhotoManifest.json        updated with new entries
-//   wger-verification-results.json             full audit trail (every candidate, pass or fail, with the model's stated reason)
+//   src/assets/exercise-photos/<slug>.<ext>    photos that passed, copied in
+//   src/assets/exercise-videos/<slug>.<ext>    videos that passed, copied in
+//   src/data/exercisePhotoManifest.json         updated with new photo entries
+//   src/data/exerciseVideoManifest.json         updated with new video entries
+//   wger-verification-results.json              full audit trail (every candidate, pass or fail, with the model's stated reason)
 //
-// Safe to re-run: skips exercises that already have a manifest entry.
+// Safe to re-run: skips exercises that already have a manifest entry
+// (photo or video).
 
 import { EXERCISES } from '../src/data/exerciseLibrary.js'
-import { readFile, writeFile, copyFile, mkdir } from 'node:fs/promises'
+import { readFile, writeFile, copyFile, mkdir, unlink } from 'node:fs/promises'
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
+
+const execFileAsync = promisify(execFile)
 
 const STAGING_DIR = path.resolve('scripts/.wger-candidates')
 const OUT_IMG_DIR = path.resolve('src/assets/exercise-photos')
-const OUT_MANIFEST = path.resolve('src/data/exercisePhotoManifest.json')
+const OUT_VIDEO_DIR = path.resolve('src/assets/exercise-videos')
+const OUT_PHOTO_MANIFEST = path.resolve('src/data/exercisePhotoManifest.json')
+const OUT_VIDEO_MANIFEST = path.resolve('src/data/exerciseVideoManifest.json')
 const IN_CANDIDATES = path.resolve('wger-candidates.json')
 const OUT_RESULTS = path.resolve('wger-verification-results.json')
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024
@@ -57,15 +72,33 @@ if (!existsSync(IN_CANDIDATES)) {
   process.exit(1)
 }
 
-const MEDIA_TYPES = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' }
+const IMAGE_MEDIA_TYPES = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' }
 
 function slugify(name) {
   return name.toLowerCase().replace(/[()]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
-async function verifyImage(name, cue, imagePath) {
+async function checkFfmpeg() {
+  try {
+    await execFileAsync('ffmpeg', ['-version'])
+    return true
+  } catch {
+    return false
+  }
+}
+
+async function extractFrame(videoPath, framePath) {
+  try {
+    await execFileAsync('ffmpeg', ['-y', '-ss', '1', '-i', videoPath, '-frames:v', '1', '-q:v', '3', framePath])
+  } catch {
+    // Clip may be under 1s — fall back to the very first frame.
+    await execFileAsync('ffmpeg', ['-y', '-i', videoPath, '-frames:v', '1', '-q:v', '3', framePath])
+  }
+}
+
+async function verifyImageFile(name, cue, imagePath) {
   const ext = path.extname(imagePath).toLowerCase()
-  const mediaType = MEDIA_TYPES[ext]
+  const mediaType = IMAGE_MEDIA_TYPES[ext]
   if (!mediaType) return { matches: false, reason: `Unsupported image format: ${ext}` }
 
   const buf = await readFile(imagePath)
@@ -120,6 +153,7 @@ async function verifyImage(name, cue, imagePath) {
                 '- A different exercise that shares equipment or part of the name does NOT count (e.g. a calf-press variant shown for a standard leg press, or a reverse/opposite-direction variant of a similarly-named movement).',
                 '- An image that is not an exercise photo at all (a logo, an icon, an unrelated picture) does NOT count.',
                 '- If the pose/position contradicts the description above (e.g. leaning the wrong direction, wrong grip width, wrong equipment), it does NOT count.',
+                '- If this looks like a single frame from a video (mid-motion, slightly blurry), judge it the same way — is the movement shown consistent with this exercise?',
                 '- If you are not confident it is a match, say it does not match.',
               ].join('\n'),
             },
@@ -142,20 +176,29 @@ async function verifyImage(name, cue, imagePath) {
 
 async function main() {
   await mkdir(OUT_IMG_DIR, { recursive: true })
+  await mkdir(OUT_VIDEO_DIR, { recursive: true })
+
+  const ffmpegAvailable = await checkFfmpeg()
+  if (!ffmpegAvailable) {
+    console.warn('ffmpeg not found on PATH — video candidates will be skipped (photo candidates are unaffected).')
+    console.warn('Install it and re-run to also verify videos, e.g.: brew install ffmpeg / apt install ffmpeg\n')
+  }
 
   const candidates = JSON.parse(readFileSync(IN_CANDIDATES, 'utf8'))
-  let manifest = existsSync(OUT_MANIFEST) ? JSON.parse(readFileSync(OUT_MANIFEST, 'utf8')) : {}
+  let photoManifest = existsSync(OUT_PHOTO_MANIFEST) ? JSON.parse(readFileSync(OUT_PHOTO_MANIFEST, 'utf8')) : {}
+  let videoManifest = existsSync(OUT_VIDEO_MANIFEST) ? JSON.parse(readFileSync(OUT_VIDEO_MANIFEST, 'utf8')) : {}
 
   const results = existsSync(OUT_RESULTS) ? JSON.parse(readFileSync(OUT_RESULTS, 'utf8')) : {}
 
   let passed = 0
   let failed = 0
   let skipped = 0
+  let skippedNoFfmpeg = 0
 
   const names = Object.keys(candidates)
   for (const name of names) {
-    if (manifest[name]) {
-      console.log(`[skip] ${name} — already has a confirmed photo`)
+    if (photoManifest[name] || videoManifest[name]) {
+      console.log(`[skip] ${name} — already has a confirmed photo or video`)
       skipped++
       continue
     }
@@ -171,34 +214,50 @@ async function main() {
 
     for (let i = 0; i < candidates[name].length; i++) {
       const c = candidates[name][i]
-      const imagePath = path.join(STAGING_DIR, c.file)
-      if (!existsSync(imagePath)) {
+      const mediaPath = path.join(STAGING_DIR, c.file)
+      if (!existsSync(mediaPath)) {
         console.warn(`  [missing] ${c.file} not found on disk, skipping candidate`)
         continue
       }
 
+      let framePath = null
       let verdict
+
       try {
-        verdict = await verifyImage(name, info.cue, imagePath)
+        if (c.type === 'video') {
+          if (!ffmpegAvailable) {
+            exerciseResults.push({ candidate: c.wgerName, type: 'video', verdict: 'skipped', reason: 'ffmpeg not installed locally' })
+            skippedNoFfmpeg++
+            continue
+          }
+          framePath = path.join(STAGING_DIR, `${slugify(name)}__frame${i}.jpg`)
+          await extractFrame(mediaPath, framePath)
+          verdict = await verifyImageFile(name, info.cue, framePath)
+        } else {
+          verdict = await verifyImageFile(name, info.cue, mediaPath)
+        }
       } catch (err) {
-        console.warn(`  [error] ${name} candidate ${i} (${c.wgerName}): ${err.message}`)
-        exerciseResults.push({ candidate: c.wgerName, verdict: 'error', reason: err.message })
+        console.warn(`  [error] ${name} ${c.type} candidate ${i} (${c.wgerName}): ${err.message}`)
+        exerciseResults.push({ candidate: c.wgerName, type: c.type, verdict: 'error', reason: err.message })
         continue
+      } finally {
+        if (framePath && existsSync(framePath)) await unlink(framePath).catch(() => {})
       }
 
       exerciseResults.push({
         candidate: c.wgerName,
+        type: c.type,
         verdict: verdict.matches ? 'pass' : 'fail',
         reason: verdict.reason,
       })
 
       if (verdict.matches) {
-        console.log(`[PASS] ${name} <- "${c.wgerName}" — ${verdict.reason}`)
+        console.log(`[PASS] ${name} <- ${c.type}:"${c.wgerName}" — ${verdict.reason}`)
         chosenIndex = i
         passed++
         break
       } else {
-        console.log(`[fail] ${name} <- "${c.wgerName}" — ${verdict.reason}`)
+        console.log(`[fail] ${name} <- ${c.type}:"${c.wgerName}" — ${verdict.reason}`)
         failed++
       }
 
@@ -209,25 +268,34 @@ async function main() {
       const c = candidates[name][chosenIndex]
       const ext = path.extname(c.file)
       const fileName = `${slugify(name)}${ext}`
-      await copyFile(path.join(STAGING_DIR, c.file), path.join(OUT_IMG_DIR, fileName))
-      manifest[name] = {
+      const lastResult = exerciseResults[exerciseResults.length - 1]
+      const entry = {
         file: fileName,
         wgerName: c.wgerName,
         license: c.license,
         licenseAuthor: c.licenseAuthor,
         sourceUrl: c.sourceUrl,
-        aiVerifiedReason: exerciseResults[exerciseResults.length - 1].reason,
+        aiVerifiedReason: lastResult.reason,
+      }
+      if (c.type === 'video') {
+        await copyFile(path.join(STAGING_DIR, c.file), path.join(OUT_VIDEO_DIR, fileName))
+        videoManifest[name] = entry
+      } else {
+        await copyFile(path.join(STAGING_DIR, c.file), path.join(OUT_IMG_DIR, fileName))
+        photoManifest[name] = entry
       }
     }
 
     results[name] = exerciseResults
-    await writeFile(OUT_MANIFEST, JSON.stringify(manifest, null, 2))
+    await writeFile(OUT_PHOTO_MANIFEST, JSON.stringify(photoManifest, null, 2))
+    await writeFile(OUT_VIDEO_MANIFEST, JSON.stringify(videoManifest, null, 2))
     await writeFile(OUT_RESULTS, JSON.stringify(results, null, 2))
   }
 
   console.log('\n--- DONE ---')
-  console.log(`Passed: ${passed}, Failed: ${failed}, Skipped (already had a photo): ${skipped}`)
-  console.log(`Manifest: ${OUT_MANIFEST}`)
+  console.log(`Passed: ${passed}, Failed: ${failed}, Skipped (already had media): ${skipped}, Skipped (no ffmpeg): ${skippedNoFfmpeg}`)
+  console.log(`Photo manifest: ${OUT_PHOTO_MANIFEST}`)
+  console.log(`Video manifest: ${OUT_VIDEO_MANIFEST}`)
   console.log(`Full audit trail: ${OUT_RESULTS}`)
 }
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-// STEP 1 of the round-3 photo pipeline. Broadens the search for the exercises
-// still missing a photo, and stages CANDIDATE images for AI verification
-// (scripts/verify-wger-candidates.mjs) instead of accepting/rejecting them
-// itself.
+// STEP 1 of the round-3 photo/video pipeline. Broadens the search for the
+// exercises still missing a photo, and stages CANDIDATE media for AI
+// verification (scripts/verify-wger-candidates.mjs) instead of
+// accepting/rejecting it itself.
 //
 // Why the old hard gate is gone: round 2 showed two false positives
 // (Cable Pullover <- Cable Cross-over, Close-Grip Bench Press <- Bench
@@ -14,13 +14,21 @@
 // exercise, top-3 raw results per query, no hard rejection) and leaves
 // correctness entirely to the AI vision check in step 2.
 //
+// Also stages wger's self-hosted exercise VIDEOS where available — the same
+// exerciseinfo response already includes a `videos` array (same CC-BY-SA
+// license/author fields as images), so this is free extra candidate data,
+// not an extra source to vet. These were added after a separate attempt to
+// use a hand-supplied list of YouTube links turned out to be mostly
+// non-existent/fabricated video IDs — wger's self-hosted clips carry the
+// same verified license as the photos, unlike an arbitrary YouTube URL.
+//
 // Run from a machine with normal internet access (wger.de is blocked from
 // the sandbox this project is built in):
 //   node scripts/fetch-wger-candidates.mjs
 //
 // Output:
-//   scripts/.wger-candidates/<slug>__<n>.<ext>   staged candidate images
-//   wger-candidates.json                          candidate metadata, consumed by verify-wger-candidates.mjs
+//   scripts/.wger-candidates/<slug>__<type><n>.<ext>   staged candidate images/videos
+//   wger-candidates.json                                candidate metadata, consumed by verify-wger-candidates.mjs
 //
 // Safe to re-run: skips exercises that already have a manifest entry, and
 // skips exercises that already have staged candidates from a previous run.
@@ -223,10 +231,15 @@ function pickEnglishTranslation(exerciseInfo, englishId) {
   return translations.find((t) => t.language === englishId) ?? translations[0] ?? null
 }
 
-async function downloadImage(url, destPath) {
+const MAX_VIDEO_BYTES = 15 * 1024 * 1024
+
+async function downloadFile(url, destPath, maxBytes) {
   const res = await fetch(url, { headers: HEADERS })
-  if (!res.ok) throw new Error(`image download failed: HTTP ${res.status}`)
+  if (!res.ok) throw new Error(`download failed: HTTP ${res.status}`)
   const buf = Buffer.from(await res.arrayBuffer())
+  if (maxBytes && buf.length > maxBytes) {
+    throw new Error(`file too large (${(buf.length / 1024 / 1024).toFixed(1)}MB)`)
+  }
   await writeFile(destPath, buf)
 }
 
@@ -245,12 +258,14 @@ async function main() {
   const candidates = { ...existingCandidates }
   let exercisesWithCandidates = 0
   let totalImages = 0
+  let totalVideos = 0
 
   for (const name of unmatched) {
     if (candidates[name]?.length > 0) {
       console.log(`[skip] ${name} — already has ${candidates[name].length} staged candidate(s)`)
       exercisesWithCandidates++
-      totalImages += candidates[name].length
+      totalImages += candidates[name].filter((c) => c.type !== 'video').length
+      totalVideos += candidates[name].filter((c) => c.type === 'video').length
       continue
     }
 
@@ -258,34 +273,51 @@ async function main() {
       (t, i, arr) => arr.indexOf(t) === i,
     )
 
-    const seenIds = new Set()
-    const found = []
+    const seenImageIds = new Set()
+    const seenVideoIds = new Set()
+    const foundImages = []
+    const foundVideos = []
 
     for (const term of terms) {
       try {
         const results = await searchWger(term)
         for (const r of results) {
-          if (seenIds.has(r.id)) continue
-          const images = r.images ?? []
-          const mainImage = images.find((img) => img.is_main) ?? images[0]
-          if (!mainImage) continue
-          seenIds.add(r.id)
           const translation = pickEnglishTranslation(r, englishId)
-          found.push({
-            wgerName: translation?.name ?? term,
-            plausible: translation ? isPlausibleMatch(name, translation.name) : false,
-            image: mainImage,
-          })
+          const wgerName = translation?.name ?? term
+          const plausible = translation ? isPlausibleMatch(name, translation.name) : false
+
+          if (!seenImageIds.has(r.id)) {
+            const images = r.images ?? []
+            const mainImage = images.find((img) => img.is_main) ?? images[0]
+            if (mainImage) {
+              seenImageIds.add(r.id)
+              foundImages.push({ type: 'image', wgerName, plausible, media: mainImage })
+            }
+          }
+
+          // wger also hosts short self-hosted video clips (same CC-BY-SA
+          // license/author fields as images) for a subset of exercises —
+          // free to check since it's the same exerciseinfo response we
+          // already fetched for images, no extra API calls.
+          if (!seenVideoIds.has(r.id)) {
+            const videos = r.videos ?? []
+            const mainVideo = videos.find((v) => v.is_main) ?? videos[0]
+            if (mainVideo) {
+              seenVideoIds.add(r.id)
+              foundVideos.push({ type: 'video', wgerName, plausible, media: mainVideo })
+            }
+          }
         }
       } catch (err) {
         console.warn(`  search error for "${term}": ${err.message}`)
       }
       await new Promise((r) => setTimeout(r, 150))
-      if (found.length >= MAX_CANDIDATES_PER_EXERCISE * 2) break
+      if (foundImages.length >= MAX_CANDIDATES_PER_EXERCISE * 2 && foundVideos.length >= 1) break
     }
 
-    found.sort((a, b) => Number(b.plausible) - Number(a.plausible))
-    const chosen = found.slice(0, MAX_CANDIDATES_PER_EXERCISE)
+    foundImages.sort((a, b) => Number(b.plausible) - Number(a.plausible))
+    foundVideos.sort((a, b) => Number(b.plausible) - Number(a.plausible))
+    const chosen = [...foundVideos.slice(0, 1), ...foundImages.slice(0, MAX_CANDIDATES_PER_EXERCISE)]
 
     if (chosen.length === 0) {
       console.log(`[none] ${name}`)
@@ -295,23 +327,25 @@ async function main() {
     const staged = []
     for (let i = 0; i < chosen.length; i++) {
       const c = chosen[i]
+      const mediaUrl = c.type === 'video' ? c.media.video : c.media.image
       const slug = slugify(name)
-      const ext = path.extname(new URL(c.image.image).pathname) || '.jpg'
-      const fileName = `${slug}__${i}${ext}`
+      const ext = path.extname(new URL(mediaUrl).pathname) || (c.type === 'video' ? '.mp4' : '.jpg')
+      const fileName = `${slug}__${c.type}${i}${ext}`
       const destPath = path.join(STAGING_DIR, fileName)
       try {
-        await downloadImage(c.image.image, destPath)
+        await downloadFile(mediaUrl, destPath, c.type === 'video' ? MAX_VIDEO_BYTES : undefined)
       } catch (err) {
-        console.warn(`  download failed for ${name} candidate ${i}: ${err.message}`)
+        console.warn(`  download failed for ${name} ${c.type} candidate ${i}: ${err.message}`)
         continue
       }
       staged.push({
+        type: c.type,
         file: fileName,
         wgerName: c.wgerName,
         plausible: c.plausible,
-        license: c.image.license_title || 'CC-BY-SA 4.0',
-        licenseAuthor: c.image.license_author || 'wger.de contributors',
-        sourceUrl: c.image.image,
+        license: c.media.license_title || 'CC-BY-SA 4.0',
+        licenseAuthor: c.media.license_author || 'wger.de contributors',
+        sourceUrl: mediaUrl,
       })
       await new Promise((r) => setTimeout(r, 150))
     }
@@ -319,8 +353,9 @@ async function main() {
     if (staged.length > 0) {
       candidates[name] = staged
       exercisesWithCandidates++
-      totalImages += staged.length
-      console.log(`[ok] ${name} — ${staged.length} candidate(s): ${staged.map((s) => s.wgerName).join(', ')}`)
+      totalImages += staged.filter((s) => s.type === 'image').length
+      totalVideos += staged.filter((s) => s.type === 'video').length
+      console.log(`[ok] ${name} — ${staged.map((s) => `${s.type}:${s.wgerName}`).join(', ')}`)
     }
   }
 
@@ -329,9 +364,10 @@ async function main() {
   console.log('\n--- DONE ---')
   console.log(`Exercises with at least one candidate: ${exercisesWithCandidates} / ${unmatched.length}`)
   console.log(`Total candidate images staged: ${totalImages}`)
+  console.log(`Total candidate videos staged: ${totalVideos}`)
   console.log(`Candidates file: ${OUT_CANDIDATES}`)
-  console.log(`Staged images:   ${STAGING_DIR}`)
-  console.log('\nNext: node scripts/verify-wger-candidates.mjs (needs ANTHROPIC_API_KEY)')
+  console.log(`Staged files:    ${STAGING_DIR}`)
+  console.log('\nNext: node scripts/verify-wger-candidates.mjs (needs ANTHROPIC_API_KEY; video verification also needs ffmpeg installed)')
 }
 
 main().catch((err) => {
