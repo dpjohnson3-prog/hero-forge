@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import AppHeader from './components/forge/AppHeader'
 import AuthScreen from './components/forge/AuthScreen'
@@ -7,10 +8,15 @@ import Settings from './pages/Settings'
 import ChooseHero from './pages/ChooseHero'
 import { useAuth } from './context/AuthProvider'
 import { useSelectedHero } from './hooks/useSelectedHero'
+import { configurePurchases } from './lib/purchases'
 
 function App() {
   const { user, loading } = useAuth()
   const { hero, heroId, loaded: heroLoaded } = useSelectedHero()
+
+  useEffect(() => {
+    configurePurchases()
+  }, [])
 
   if (loading) {
     return <div className="min-h-screen" />
