@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import ChooseHero from './pages/ChooseHero'
+import Paywall from './pages/Paywall'
 import { useAuth } from './context/AuthProvider'
 import { useSelectedHero } from './hooks/useSelectedHero'
 import { configurePurchases } from './lib/purchases'
@@ -42,6 +43,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/choose-hero" element={<ChooseHero />} />
+        <Route path="/paywall" element={<Paywall />} />
       </Routes>
     </div>
   )
