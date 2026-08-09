@@ -6,7 +6,7 @@ import { useSelectedHero } from '../../hooks/useSelectedHero'
 import ConfirmDialog from './ConfirmDialog'
 
 const navLinkClass = ({ isActive }) =>
-  `flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+  `flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold transition-colors sm:px-4 ${
     isActive ? 'bg-hero-gold text-ink' : 'text-text-dim hover:text-text hover:bg-panel-raised'
   }`
 
@@ -20,13 +20,13 @@ export default function AppHeader() {
     <>
       <header className="sticky top-0 z-20 border-b-2 border-border bg-ink/90 pt-[env(safe-area-inset-top)] backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Flame className="h-7 w-7 text-hero-red" strokeWidth={2.5} />
             <span className="font-display text-xl uppercase tracking-wide sm:text-2xl">
               Hero<span className="text-hero-gold">Forge</span>
             </span>
           </div>
-          <nav className="flex items-center gap-2">
+          <nav className="no-scrollbar flex min-w-0 items-center gap-1 overflow-x-auto sm:gap-2">
             <NavLink to="/" end className={navLinkClass}>
               <Dumbbell className="h-4 w-4" />
               <span className="hidden sm:inline">Train</span>
@@ -38,7 +38,7 @@ export default function AppHeader() {
             <button
               type="button"
               onClick={() => setConfirmOpen(true)}
-              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-text"
+              className="flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-text sm:px-4"
             >
               <Users className="h-4 w-4" />
               <span className="hidden sm:inline">Change Hero</span>
@@ -50,7 +50,7 @@ export default function AppHeader() {
             <button
               type="button"
               onClick={() => signOut()}
-              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-hero-red"
+              className="flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-hero-red sm:px-4"
             >
               <LogOut className="h-4 w-4" />
               <span className="hidden sm:inline">Sign Out</span>
