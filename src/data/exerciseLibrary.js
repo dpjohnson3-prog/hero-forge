@@ -108,8 +108,6 @@ export const EXERCISES = {
   'Weighted Carry': { pose: 'carry', equipment: 'dumbbells', cue: "Carry a weight at your side (or overhead) for distance, keeping your core braced against the load." },
   'Single-Arm Carry': { pose: 'carry', equipment: 'dumbbells', cue: "Carry a heavy weight in one hand only, resisting the urge to lean, then switch sides." },
   'Heavy Trap Bar Carry': { pose: 'carry', equipment: 'barbellLow', cue: "Lift a loaded trap bar to standing and walk forward with short, controlled steps." },
-  'Sled Drag': { pose: 'carry', equipment: 'sledObj', cue: "Attach a strap to a loaded sled and walk backward or forward, dragging it at a steady pace." },
-  'Sled Push': { pose: 'push', equipment: 'sledObj', cue: "Load the sled, get low, and drive it forward in short, powerful steps." },
 
   // Kettlebell
   'Kettlebell Swing': { pose: 'kettlebell', equipment: 'kettlebellObj', cue: "Hinge at the hips and hike the kettlebell back, then snap your hips forward to swing it to chest height." },
@@ -125,28 +123,18 @@ export const EXERCISES = {
   'Broad Jump': { pose: 'jump', equipment: null, cue: "Swing your arms and jump forward as far as possible, landing softly with bent knees." },
   'Lateral Bounds': { pose: 'jump', equipment: null, cue: "Jump sideways from one foot to the other, sticking each landing before bounding back the other way." },
 
-  // Bag / solo combat
-  'Heavy Bag Combos': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Work combinations of punches on the heavy bag, staying light on your feet between combos." },
-  'Heavy Bag Rounds': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Work the heavy bag for timed rounds, mixing punches at a steady, sustainable pace." },
-  'Heavy Bag Kick Rounds': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Work kicks on the heavy bag for timed rounds, resetting your stance between each one." },
-  'Heavy Bag Knee Strikes': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Drive knee strikes into the heavy bag, pulling it into you for extra resistance." },
-  'Heavy Bag Slashing Combos': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Work fast, chopping strike combinations on the heavy bag, keeping your guard up between them." },
-  'Heavy Bag Work': { pose: 'bagStrike', equipment: 'heavyBag', cue: "Freestyle on the heavy bag — punches, footwork, and movement — for the set duration." },
+  // Solo combat (no heavy bag required)
   'Shadow Boxing': { pose: 'bagStrike', equipment: null, cue: "Throw combinations at an imaginary opponent, focusing on footwork, head movement, and form." },
-  'Speed Bag': { pose: 'bagStrike', equipment: 'speedBag', cue: "Keep a steady rhythm striking the speed bag with alternating hands." },
+  'Shadow Kickboxing': { pose: 'bagStrike', equipment: null, cue: "Throw punch and kick combinations at an imaginary target, resetting your stance after each strike." },
+  'Standing Knee Drives': { pose: 'stand', equipment: null, cue: "Drive one knee up explosively toward your chest, alternating legs at a fast, controlled pace." },
 
   // Rope / battle ropes
-  'Rope Climb': { pose: 'rope', equipment: 'ropeCeiling', cue: "Climb hand over hand up the rope using your arms and a scissor or J-hook leg lock for support." },
   'Battle Ropes': { pose: 'battleRopes', equipment: null, cue: "Whip the ropes in alternating waves as hard as you can for the set duration." },
 
   // TRX / suspension
   'TRX Suspension Circuit': { pose: 'trx', equipment: 'trxStraps', cue: "Move through a circuit of suspension-trainer rows, presses, and holds, adjusting the strap angle to change difficulty." },
   'TRX Suspension Hold': { pose: 'trx', equipment: 'trxStraps', cue: "Lean back into the straps and hold a strong, straight-body position at a challenging angle." },
   'Web-Swing Simulation (TRX)': { pose: 'trx', equipment: 'trxStraps', cue: "Swing side to side while suspended in the straps, controlling the motion with your core and grip." },
-
-  // Strongman
-  'Tire Flip': { pose: 'strongman', equipment: 'tireObj', cue: "Squat down, grip low under the tire, and drive through your legs and hips to flip it over." },
-  'Sledgehammer Slams': { pose: 'strongman', equipment: 'sledgehammerObj', cue: "Swing the sledgehammer overhead and down into a tire, alternating hand positions each rep." },
 
   // Olympic lifts
   'Power Clean': { pose: 'oly', equipment: 'barbellLow', cue: "Pull the bar explosively from the floor and catch it at your shoulders in a quarter-squat." },
@@ -182,7 +170,6 @@ export const EXERCISES = {
   'Reactive Dodge Drills': { pose: 'stand', equipment: null, cue: "Shift your weight and change direction quickly in response to a cue, staying light on your feet." },
   'Balance Board Hold': { pose: 'balance', equipment: null, cue: "Stand on the balance board and hold a stable position, making small corrections with your ankles and core." },
   'Balance Drills': { pose: 'balance', equipment: null, cue: "Practice holding a single-leg or unstable-surface balance for time, focusing on small, controlled corrections." },
-  'Grip Crush Work': { pose: 'grip', equipment: 'gripperObj', cue: "Squeeze a hand gripper through a full range of motion for the set number of reps." },
   'Plate Pinch Hold': { pose: 'grip', equipment: 'plateObj', cue: "Pinch a weight plate between your fingers and thumb and hold for time without letting it slip." },
   'Breathing Drills': { pose: 'stand', equipment: null, cue: "Practice slow, controlled breathing — long inhales and full exhales — to build breath control under tension." },
   'Cable Draw Hold': { pose: 'row', equipment: 'cableStack', cue: "Pull a cable handle back to full draw like an archer and hold the position under tension." },

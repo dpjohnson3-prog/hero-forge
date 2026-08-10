@@ -14,12 +14,12 @@ export const HEROES = [
     archetype: 'Tactical Powerhouse',
     category: 'hero',
     blurb: 'Dense, functional muscle built for strength, striking power and all-night endurance.',
-    target: { weight: 210, bodyFat: 9, chest: 46, waist: 32, arms: 16.5, thighs: 25 },
+    target: { weight: 210, bodyFat: 12, chest: 46, waist: 32, arms: 16.5, thighs: 25 },
     workout: {
       split: '6-day hybrid strength & combat conditioning',
       days: [
         day('Day 1', 'Strength — Push', [ex('Barbell Bench Press', 5, '5'), ex('Weighted Dip', 4, '8'), ex('Overhead Press', 4, '6'), ex('Cable Fly', 3, '12')]),
-        day('Day 2', 'Combat Conditioning', [ex('Heavy Bag Rounds', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Sprawls', 4, '15'), ex('Sled Push', 4, '20m')]),
+        day('Day 2', 'Combat Conditioning', [ex('Shadow Boxing', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Sprawls', 4, '15'), ex('Farmer Carry', 4, '20m')]),
         day('Day 3', 'Strength — Pull', [ex('Weighted Pull-Up', 5, '6'), ex('Barbell Row', 4, '8'), ex('Deadlift', 4, '5'), ex('Farmer Carry', 3, '40m')]),
         day('Day 4', 'Grip & Core Strength', [ex('Farmer Carry', 5, '40m'), ex('Plate Pinch Hold', 4, '30s'), ex('Weighted Dead Hang', 4, '20s')]),
         day('Day 5', 'Strength — Legs', [ex('Back Squat', 5, '5'), ex('Bulgarian Split Squat', 4, '10'), ex('Romanian Deadlift', 4, '8'), ex('Calf Raise', 4, '15')]),
@@ -44,7 +44,7 @@ export const HEROES = [
     archetype: 'Acrobatic Athlete',
     category: 'hero',
     blurb: 'Lean, springy, gymnast-built physique optimized for speed, agility and aerial movement.',
-    target: { weight: 180, bodyFat: 7, chest: 41, waist: 29, arms: 14.5, thighs: 22.5 },
+    target: { weight: 180, bodyFat: 10, chest: 41, waist: 29, arms: 14.5, thighs: 22.5 },
     workout: {
       split: '5-day gymnastic strength training',
       days: [
@@ -52,7 +52,7 @@ export const HEROES = [
         day('Day 2', 'Sprint & Plyometric', [ex('Treadmill Sprint Intervals', 8, '100m'), ex('Box Jump', 5, '8'), ex('Broad Jump', 4, '6')]),
         day('Day 3', 'Pull & Core', [ex('Weighted Pull-Up', 5, '8'), ex('Front Lever Progression', 4, '15s'), ex('Hanging Leg Raise', 4, '15'), ex('Dragon Flag', 3, '8')]),
         day('Day 4', 'Plyometric Power', [ex('Box Jump', 6, '10'), ex('Broad Jump', 5, '8'), ex('Weighted Step-Up', 4, '10')]),
-        day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Push-Up Variations', 4, '15'), ex('Rope Climb', 4, '2')]),
+        day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Push-Up Variations', 4, '15'), ex('Weighted Dead Hang', 4, '20s')]),
       ],
     },
     diet: {
@@ -73,15 +73,15 @@ export const HEROES = [
     archetype: 'Fighter\'s Physique',
     category: 'hero',
     blurb: 'Wiry, whip-strong boxer/martial-artist build with elite conditioning and pain tolerance.',
-    target: { weight: 185, bodyFat: 8, chest: 42, waist: 30, arms: 15, thighs: 23 },
+    target: { weight: 185, bodyFat: 11, chest: 42, waist: 30, arms: 15, thighs: 23 },
     workout: {
       split: '6-day boxing & martial arts conditioning',
       days: [
-        day('Day 1', 'Boxing Technique', [ex('Heavy Bag Combos', 8, '3 min'), ex('Speed Bag', 5, '2 min'), ex('Shadow Boxing', 5, '3 min')]),
+        day('Day 1', 'Boxing Technique', [ex('Jump Rope', 8, '3 min'), ex('Battle Ropes', 5, '2 min'), ex('Shadow Boxing', 5, '3 min')]),
         day('Day 2', 'Strength — Full Body', [ex('Trap Bar Deadlift', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Push Press', 4, '6')]),
-        day('Day 3', 'Muay Thai Conditioning', [ex('Heavy Bag Kick Rounds', 6, '3 min'), ex('Heavy Bag Knee Strikes', 5, '10'), ex('Jump Rope', 5, '3 min')]),
+        day('Day 3', 'Muay Thai Conditioning', [ex('Shadow Kickboxing', 6, '3 min'), ex('Standing Knee Drives', 5, '10'), ex('Jump Rope', 5, '3 min')]),
         day('Day 4', 'Core & Rotational Power', [ex('Landmine Rotations', 4, '12'), ex('Medicine Ball Slam', 4, '12'), ex('Hanging Leg Raise', 4, '15')]),
-        day('Day 5', 'Reactive Bag Work', [ex('Heavy Bag Rounds', 5, '3 min'), ex('Reaction Ball Drills', 4, '2 min')]),
+        day('Day 5', 'Reactive Conditioning', [ex('Shadow Boxing', 5, '3 min'), ex('Reaction Ball Drills', 4, '2 min')]),
         day('Day 6', 'Endurance Run + Mobility', [ex('Treadmill Tempo Run', 1, '5 miles'), ex('Hip Mobility Flow', 1, '15 min')]),
       ],
     },
@@ -103,15 +103,15 @@ export const HEROES = [
     archetype: 'Godly Mass & Power',
     category: 'hero',
     blurb: 'Massive, powerful frame built with heavy strength training for raw, overwhelming power.',
-    target: { weight: 250, bodyFat: 12, chest: 52, waist: 36, arms: 19, thighs: 27 },
+    target: { weight: 250, bodyFat: 15, chest: 52, waist: 36, arms: 19, thighs: 27 },
     workout: {
       split: '5-day heavy strength & mass split',
       days: [
         day('Day 1', 'Chest & Triceps', [ex('Barbell Bench Press', 5, '5'), ex('Incline Dumbbell Press', 4, '8'), ex('Weighted Dip', 4, '10'), ex('Close-Grip Bench Press', 4, '8')]),
         day('Day 2', 'Back & Biceps', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '8'), ex('Barbell Curl', 4, '10')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '5'), ex('Leg Press', 4, '10'), ex('Walking Lunge', 4, '12'), ex('Standing Calf Raise', 5, '15')]),
-        day('Day 4', 'Shoulders — "Hammer Time"', [ex('Overhead Press', 5, '5'), ex('Arnold Press', 4, '10'), ex('Lateral Raise', 4, '15'), ex('Sledgehammer Slams', 5, '20')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Farmer Carry', 5, '50m'), ex('Zercher Deadlift', 5, '5'), ex('Sled Drag', 5, '30m')]),
+        day('Day 4', 'Shoulders — "Slam Time"', [ex('Overhead Press', 5, '5'), ex('Arnold Press', 4, '10'), ex('Lateral Raise', 4, '15'), ex('Medicine Ball Slam', 5, '20')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Farmer Carry', 5, '50m'), ex('Zercher Deadlift', 5, '5'), ex('Heavy Trap Bar Carry', 5, '30m')]),
       ],
     },
     diet: {
@@ -132,7 +132,7 @@ export const HEROES = [
     archetype: 'Classic Heroic Build',
     category: 'hero',
     blurb: 'The archetypal balanced physique — broad shoulders, full chest, and a tapered waist.',
-    target: { weight: 235, bodyFat: 10, chest: 50, waist: 34, arms: 18, thighs: 26 },
+    target: { weight: 235, bodyFat: 13, chest: 50, waist: 34, arms: 18, thighs: 26 },
     workout: {
       split: '5-day classic bodybuilding split',
       days: [
@@ -161,7 +161,7 @@ export const HEROES = [
     archetype: 'Peak Human Soldier',
     category: 'hero',
     blurb: 'The pinnacle of balanced athleticism — strength, speed, endurance and agility in one frame.',
-    target: { weight: 220, bodyFat: 9, chest: 48, waist: 33, arms: 17.5, thighs: 25.5 },
+    target: { weight: 220, bodyFat: 12, chest: 48, waist: 33, arms: 17.5, thighs: 25.5 },
     workout: {
       split: '6-day military hybrid training',
       days: [
@@ -191,7 +191,7 @@ export const HEROES = [
     archetype: 'Maximum Mass',
     category: 'hero',
     blurb: 'Extreme, overwhelming muscle mass built through brutal high-volume strength training.',
-    target: { weight: 275, bodyFat: 14, chest: 56, waist: 38, arms: 21, thighs: 29 },
+    target: { weight: 275, bodyFat: 17, chest: 56, waist: 38, arms: 21, thighs: 29 },
     workout: {
       split: '5-day high-volume mass split',
       days: [
@@ -199,7 +199,7 @@ export const HEROES = [
         day('Day 2', 'Back — Volume', [ex('Deadlift', 5, '6'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10'), ex('Shrugs', 5, '15')]),
         day('Day 3', 'Legs — Brutal', [ex('Back Squat', 6, '8'), ex('Leg Press', 5, '15'), ex('Walking Lunge', 4, '15'), ex('Leg Curl', 5, '12')]),
         day('Day 4', 'Arms & Shoulders', [ex('Overhead Press', 5, '8'), ex('Barbell Curl', 5, '10'), ex('Skull Crusher', 5, '10'), ex('Lateral Raise', 5, '15')]),
-        day('Day 5', 'Power / Smash Conditioning', [ex('Tire Flip', 6, '10'), ex('Sledgehammer Slams', 6, '20'), ex('Sled Push', 5, '25m')]),
+        day('Day 5', 'Power / Smash Conditioning', [ex('Kettlebell Swing', 6, '10'), ex('Medicine Ball Slam', 6, '20'), ex('Farmer Carry', 5, '25m')]),
       ],
     },
     diet: {
@@ -220,15 +220,15 @@ export const HEROES = [
     archetype: 'Feral Density',
     category: 'hero',
     blurb: 'Short, dense, brutally powerful build with a mutant healing factor allowing relentless training volume.',
-    target: { weight: 200, bodyFat: 8, chest: 47, waist: 32, arms: 17, thighs: 24.5 },
+    target: { weight: 200, bodyFat: 11, chest: 47, waist: 32, arms: 17, thighs: 24.5 },
     workout: {
       split: '6-day high-frequency strength training',
       days: [
         day('Day 1', 'Full Body Strength', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
-        day('Day 2', 'Claws Out — Combat Drills', [ex('Heavy Bag Slashing Combos', 6, '2 min'), ex('Grip Crush Work', 5, '30s'), ex('Speed Bag', 4, '20')]),
+        day('Day 2', 'Claws Out — Combat Drills', [ex('Shadow Boxing', 6, '2 min'), ex('Plate Pinch Hold', 5, '30s'), ex('Jump Rope', 4, '60s')]),
         day('Day 3', 'Legs & Core', [ex('Front Squat', 5, '6'), ex('Bulgarian Split Squat', 4, '10'), ex('Weighted Sit-Up', 4, '15')]),
         day('Day 4', 'Feral Conditioning', [ex('Treadmill Sprint Intervals', 8, '80m'), ex('Bear Crawl', 5, '20m'), ex('Animal Flow', 4, '10 min')]),
-        day('Day 5', 'Pull & Grip', [ex('Rope Climb', 5, '3'), ex('Barbell Row', 5, '8'), ex('Farmer Carry', 4, '50m')]),
+        day('Day 5', 'Pull & Grip', [ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 5, '8'), ex('Farmer Carry', 4, '50m')]),
         day('Day 6', 'Push & Power', [ex('Overhead Press', 5, '6'), ex('Dips', 5, '12'), ex('Plyo Push-Up', 4, '10')]),
       ],
     },
@@ -250,7 +250,7 @@ export const HEROES = [
     archetype: 'Swimmer\'s Power Build',
     category: 'hero',
     blurb: 'Broad, powerful swimmer\'s physique combining raw strength with elite aquatic endurance.',
-    target: { weight: 230, bodyFat: 11, chest: 49, waist: 34, arms: 17.5, thighs: 26 },
+    target: { weight: 230, bodyFat: 14, chest: 49, waist: 34, arms: 17.5, thighs: 26 },
     workout: {
       split: '5-day swim-strength hybrid',
       days: [
@@ -279,12 +279,12 @@ export const HEROES = [
     archetype: 'Explosive Predator',
     category: 'hero',
     blurb: 'Lean, explosive, big-cat-inspired build combining speed, agility and striking power.',
-    target: { weight: 200, bodyFat: 7, chest: 45, waist: 31, arms: 16, thighs: 24 },
+    target: { weight: 200, bodyFat: 10, chest: 45, waist: 31, arms: 16, thighs: 24 },
     workout: {
       split: '6-day martial arts & explosive power',
       days: [
         day('Day 1', 'Explosive Strength', [ex('Power Clean', 5, '3'), ex('Box Jump', 5, '6'), ex('Trap Bar Jump', 4, '5')]),
-        day('Day 2', 'Wakandan Martial Arts', [ex('Heavy Bag Combos', 6, '3 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 2', 'Wakandan Martial Arts', [ex('Shadow Kickboxing', 6, '3 min'), ex('Shadow Boxing', 4, '3 min')]),
         day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '6')]),
         day('Day 4', 'Sprint & Agility', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Cone Agility Drills', 5, '30s'), ex('Lateral Bounds', 4, '10')]),
         day('Day 5', 'Core & Rotational Power', [ex('Cable Rotation', 4, '12'), ex('Medicine Ball Slam', 4, '12'), ex('Hanging Windshield Wiper', 4, '10')]),
@@ -309,14 +309,14 @@ export const HEROES = [
     archetype: 'Amazonian Warrior',
     category: 'hero',
     blurb: 'Powerful, athletic warrior build combining heavy strength with elite combat conditioning.',
-    target: { weight: 165, bodyFat: 15, chest: 38, waist: 27, arms: 13, thighs: 23 },
+    target: { weight: 165, bodyFat: 18, chest: 38, waist: 27, arms: 13, thighs: 23 },
     workout: {
       split: '6-day warrior strength & combat training',
       days: [
         day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 4, '6'), ex('Weighted Pull-Up', 4, '8')]),
         day('Day 2', 'Sword & Shield Combat', [ex('Landmine Rotations', 6, '2 min'), ex('Battle Ropes', 5, '15'), ex('Agility Ladder', 5, '30s')]),
         day('Day 3', 'Legs — Power', [ex('Back Squat', 5, '6'), ex('Walking Lunge', 4, '12'), ex('Box Jump', 4, '8')]),
-        day('Day 4', 'Lasso & Grip Conditioning', [ex('Battle Ropes', 5, '30s'), ex('Rope Climb', 4, '3'), ex('Farmer Carry', 4, '40m')]),
+        day('Day 4', 'Lasso & Grip Conditioning', [ex('Battle Ropes', 5, '30s'), ex('Weighted Dead Hang', 4, '20s'), ex('Farmer Carry', 4, '40m')]),
         day('Day 5', 'Olympic Lifting', [ex('Clean & Jerk', 5, '3'), ex('Snatch', 5, '3'), ex('Front Squat', 4, '6')]),
         day('Day 6', 'Aerial Combat Conditioning', [ex('Treadmill Sprint Intervals', 8, '80m'), ex('Plyo Push-Up', 4, '10'), ex('Core Circuit', 4, '15')]),
       ],
@@ -339,12 +339,12 @@ export const HEROES = [
     archetype: 'Wall-Crawler Athlete',
     category: 'hero',
     blurb: 'Lean, wiry, incredibly agile physique built for climbing, swinging, and rapid direction changes.',
-    target: { weight: 165, bodyFat: 7, chest: 39, waist: 28, arms: 13.5, thighs: 21.5 },
+    target: { weight: 165, bodyFat: 10, chest: 39, waist: 28, arms: 13.5, thighs: 21.5 },
     workout: {
       split: '5-day calisthenics & agility training',
       days: [
         day('Day 1', 'Upper Body Calisthenics', [ex('Muscle-Up', 5, '5'), ex('Archer Pull-Up', 4, '8'), ex('Handstand Push-Up', 4, '6')]),
-        day('Day 2', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Weighted Dead Hang', 5, '15s'), ex('Rope Climb', 4, '2')]),
+        day('Day 2', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Weighted Dead Hang', 5, '15s'), ex('Weighted Pull-Up', 4, '8')]),
         day('Day 3', 'Agility & Reaction', [ex('Agility Ladder', 6, '30s'), ex('Reaction Ball Drills', 5, '2 min'), ex('Web-Swing Simulation (TRX)', 4, '10')]),
         day('Day 4', 'Core & Spider Sense', [ex('Dragon Flag', 4, '8'), ex('Hollow Body Hold', 4, '30s'), ex('Reactive Dodge Drills', 5, '2 min')]),
         day('Day 5', 'Full Body Circuit', [ex('Pistol Squat', 4, '10'), ex('Weighted Step-Up', 5, '5'), ex('Treadmill Sprint Intervals', 6, '60m')]),
@@ -368,12 +368,12 @@ export const HEROES = [
     archetype: 'Merc Athletic Build',
     category: 'hero',
     blurb: 'Athletic, functional mercenary build — strong and fast enough to fight dirty and heal from anything.',
-    target: { weight: 210, bodyFat: 11, chest: 45, waist: 33, arms: 16.5, thighs: 24.5 },
+    target: { weight: 210, bodyFat: 14, chest: 45, waist: 33, arms: 16.5, thighs: 24.5 },
     workout: {
       split: '6-day unconventional mercenary training',
       days: [
         day('Day 1', 'Weapons & Strength', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Kettlebell Swing', 4, '20')]),
-        day('Day 2', 'Katana Conditioning', [ex('Heavy Bag Slashing Combos', 6, '2 min'), ex('Agility Ladder', 5, '30s'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 2', 'Katana Conditioning', [ex('Jump Rope', 6, '2 min'), ex('Agility Ladder', 5, '30s'), ex('Shadow Boxing', 4, '3 min')]),
         day('Day 3', 'Legs & Core', [ex('Back Squat', 5, '8'), ex('Walking Lunge', 4, '12'), ex('Weighted Sit-Up', 4, '15')]),
         day('Day 4', '"Chimichanga" Circuit (Metabolic)', [ex('Burpees', 5, '15'), ex('Rowing Sprints', 5, '250m'), ex('Battle Ropes', 4, '30s')]),
         day('Day 5', 'Push/Pull Superset', [ex('Dip Superset Row', 5, '10/10'), ex('Overhead Press', 4, '8'), ex('Barbell Curl', 4, '10')]),
@@ -398,7 +398,7 @@ export const HEROES = [
     archetype: 'Efficient Athletic Build',
     category: 'hero',
     blurb: 'Trim, functional athletic build — enough conditioning to survive without the suit, built efficiently.',
-    target: { weight: 190, bodyFat: 12, chest: 43, waist: 32, arms: 15.5, thighs: 23 },
+    target: { weight: 190, bodyFat: 15, chest: 43, waist: 32, arms: 15.5, thighs: 23 },
     workout: {
       split: '4-day efficient strength & conditioning',
       days: [
@@ -426,7 +426,7 @@ export const HEROES = [
     archetype: 'Unbreakable Tank',
     category: 'hero',
     blurb: 'Massive, dense, unbreakable frame built through heavy compound lifts and constant grinding volume.',
-    target: { weight: 260, bodyFat: 13, chest: 54, waist: 37, arms: 20, thighs: 28 },
+    target: { weight: 260, bodyFat: 16, chest: 54, waist: 37, arms: 20, thighs: 28 },
     workout: {
       split: '5-day tank-strength split',
       days: [
@@ -434,7 +434,7 @@ export const HEROES = [
         day('Day 2', 'Back — Heavy', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '10'), ex('T-Bar Row', 5, '10')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '12'), ex('Standing Calf Raise', 5, '15')]),
         day('Day 4', 'Shoulders & Traps', [ex('Overhead Press', 5, '6'), ex('Shrugs', 5, '15'), ex('Lateral Raise', 5, '15')]),
-        day('Day 5', 'Unbreakable Conditioning', [ex('Sled Push', 6, '25m'), ex('Tire Flip', 5, '10'), ex('Heavy Bag Work', 5, '3 min')]),
+        day('Day 5', 'Unbreakable Conditioning', [ex('Farmer Carry', 6, '25m'), ex('Kettlebell Swing', 5, '10'), ex('Shadow Boxing', 5, '3 min')]),
       ],
     },
     diet: {
@@ -455,7 +455,7 @@ export const HEROES = [
     archetype: 'Instant Powerhouse',
     category: 'hero',
     blurb: 'A towering, godly-power physique — huge shoulders, thick chest, and explosive full-body strength.',
-    target: { weight: 245, bodyFat: 12, chest: 51, waist: 35, arms: 18.5, thighs: 26.5 },
+    target: { weight: 245, bodyFat: 15, chest: 51, waist: 35, arms: 18.5, thighs: 26.5 },
     workout: {
       split: '5-day power & mass split',
       days: [
@@ -463,7 +463,7 @@ export const HEROES = [
         day('Day 2', 'Chest & Back', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Barbell Row', 4, '10')]),
         day('Day 3', 'Legs — Power', [ex('Back Squat', 5, '6'), ex('Deadlift', 4, '5'), ex('Jump Lunge', 4, '10')]),
         day('Day 4', 'Shoulders & Lightning Grip', [ex('Overhead Press', 5, '6'), ex('Lateral Raise', 4, '15'), ex('Farmer Carry', 4, '50m')]),
-        day('Day 5', 'Conditioning — Thunder Circuit', [ex('Sled Push', 5, '25m'), ex('Battle Ropes', 5, '30s'), ex('Treadmill Sprint Intervals', 6, '80m')]),
+        day('Day 5', 'Conditioning — Thunder Circuit', [ex('Farmer Carry', 5, '25m'), ex('Battle Ropes', 5, '30s'), ex('Treadmill Sprint Intervals', 6, '80m')]),
       ],
     },
     diet: {
@@ -489,10 +489,10 @@ export const HEROES = [
       split: '5-day tactical assassin conditioning',
       days: [
         day('Day 1', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '8')]),
-        day('Day 2', 'Close-Quarters Combat', [ex('Heavy Bag Combos', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 2', 'Close-Quarters Combat', [ex('Shadow Kickboxing', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
         day('Day 3', 'Agility & Plyometrics', [ex('Agility Ladder', 6, '30s'), ex('Broad Jump', 5, '10'), ex('Box Jump', 4, '8')]),
         day('Day 4', 'Marksmanship & Core Stability', [ex('Weighted Plank Complex', 4, '45s'), ex('Rotational Throws', 4, '12'), ex('Stability Ball Circuit', 3, '15')]),
-        day('Day 5', 'Infiltration Conditioning', [ex('Stair Climber Sprints', 8, '1 flight'), ex('Rope Climb', 4, '2'), ex('Rowing Sprints', 6, '50m')]),
+        day('Day 5', 'Infiltration Conditioning', [ex('Stair Climber Sprints', 8, '1 flight'), ex('Weighted Dead Hang', 4, '20s'), ex('Rowing Sprints', 6, '50m')]),
       ],
     },
     diet: {
@@ -513,7 +513,7 @@ export const HEROES = [
     archetype: 'Elemental Force',
     category: 'hero',
     blurb: 'Fluid, controlled-power physique built on elite core stability and breath control for sustained command.',
-    target: { weight: 150, bodyFat: 16, chest: 36, waist: 26, arms: 12, thighs: 21 },
+    target: { weight: 150, bodyFat: 19, chest: 36, waist: 26, arms: 12, thighs: 21 },
     workout: {
       split: '5-day flow & controlled-power training',
       days: [
@@ -542,7 +542,7 @@ export const HEROES = [
     archetype: 'Living Steel',
     category: 'hero',
     blurb: 'The heaviest structural mass in the roster — maximum size and raw compressive strength.',
-    target: { weight: 290, bodyFat: 14, chest: 58, waist: 40, arms: 22, thighs: 30 },
+    target: { weight: 290, bodyFat: 17, chest: 58, waist: 40, arms: 22, thighs: 30 },
     workout: {
       split: '5-day maximal mass & structural strength',
       days: [
@@ -550,7 +550,7 @@ export const HEROES = [
         day('Day 2', 'Back & Biceps — Heavy', [ex('Deadlift', 5, '5'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10')]),
         day('Day 3', 'Legs — Maximal', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '12'), ex('Walking Lunge', 4, '12')]),
         day('Day 4', 'Shoulders & Traps', [ex('Overhead Press', 5, '6'), ex('Shrugs', 5, '15'), ex('Lateral Raise', 5, '15')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 5, '5'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Tire Flip', 5, '10')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 5, '5'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Kettlebell Swing', 5, '10')]),
       ],
     },
     diet: {
@@ -571,14 +571,14 @@ export const HEROES = [
     archetype: 'Tactical Enhanced Soldier',
     category: 'hero',
     blurb: 'Gritty, asymmetric functional strength sharpened by a soldier\'s discipline and enhancement.',
-    target: { weight: 205, bodyFat: 8, chest: 45, waist: 31, arms: 16.5, thighs: 24.5 },
+    target: { weight: 205, bodyFat: 11, chest: 45, waist: 31, arms: 16.5, thighs: 24.5 },
     workout: {
       split: '6-day tactical soldier training',
       days: [
         day('Day 1', 'Strength — Upper', [ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8'), ex('Overhead Press', 4, '6')]),
         day('Day 2', 'Marksmanship & Stability', [ex('Prone Stability Holds', 4, '45s'), ex('Single-Arm Carry', 4, '40m'), ex('Anti-Rotation Press', 4, '12')]),
         day('Day 3', 'Strength — Lower', [ex('Front Squat', 5, '6'), ex('Deadlift', 4, '5'), ex('Box Jump', 4, '8')]),
-        day('Day 4', 'Combat Drills', [ex('Heavy Bag Combos', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
+        day('Day 4', 'Combat Drills', [ex('Shadow Kickboxing', 6, '2 min'), ex('Shadow Boxing', 4, '3 min')]),
         day('Day 5', 'Ruck & Endurance', [ex('Weighted Vest Treadmill March', 1, '5 miles'), ex('Treadmill Sprint Finisher', 6, '100m')]),
         day('Day 6', 'Mobility & Recovery', [ex('Mobility Flow', 1, '20 min'), ex('Light Circuit', 3, '12')]),
       ],
@@ -601,7 +601,7 @@ export const HEROES = [
     archetype: 'Precision Archer',
     category: 'hero',
     blurb: 'Elite back and core strength for the draw, paired with marksman-grade stillness and endurance.',
-    target: { weight: 190, bodyFat: 9, chest: 43, waist: 32, arms: 15, thighs: 23 },
+    target: { weight: 190, bodyFat: 12, chest: 43, waist: 32, arms: 15, thighs: 23 },
     workout: {
       split: '5-day archery-focused strength & stillness training',
       days: [
@@ -630,15 +630,15 @@ export const HEROES = [
     archetype: 'Titan Powerhouse',
     category: 'villain',
     blurb: 'Cosmic-scale mass and power — the single largest strength target in HeroForge.',
-    target: { weight: 320, bodyFat: 13, chest: 60, waist: 42, arms: 23, thighs: 31 },
+    target: { weight: 320, bodyFat: 16, chest: 60, waist: 42, arms: 23, thighs: 31 },
     workout: {
       split: '5-day titan strength & power split',
       days: [
         day('Day 1', 'Chest & Triceps — Maximal', [ex('Barbell Bench Press', 6, '5'), ex('Weighted Dip', 5, '10'), ex('Close-Grip Bench Press', 5, '8')]),
         day('Day 2', 'Back & Biceps — Maximal', [ex('Deadlift', 6, '5'), ex('Weighted Pull-Up', 5, '10'), ex('Barbell Row', 5, '10')]),
         day('Day 3', 'Legs — Maximal', [ex('Back Squat', 6, '6'), ex('Leg Press', 5, '15'), ex('Walking Lunge', 4, '15')]),
-        day('Day 4', 'Shoulders — Cosmic Power', [ex('Overhead Press', 6, '5'), ex('Lateral Raise', 5, '15'), ex('Sledgehammer Slams', 5, '20')]),
-        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 6, '5'), ex('Sled Push', 5, '30m'), ex('Farmer Carry', 5, '50m')]),
+        day('Day 4', 'Shoulders — Cosmic Power', [ex('Overhead Press', 6, '5'), ex('Lateral Raise', 5, '15'), ex('Medicine Ball Slam', 5, '20')]),
+        day('Day 5', 'Strongman Conditioning', [ex('Zercher Deadlift', 6, '5'), ex('Heavy Trap Bar Carry', 5, '30m'), ex('Farmer Carry', 5, '50m')]),
       ],
     },
     diet: {
@@ -659,16 +659,16 @@ export const HEROES = [
     archetype: 'Enhanced Brawler',
     category: 'villain',
     blurb: 'Technical wrestler\'s mass — brutal grappling strength paired with genius-level fight IQ.',
-    target: { weight: 280, bodyFat: 15, chest: 56, waist: 39, arms: 21, thighs: 29 },
+    target: { weight: 280, bodyFat: 18, chest: 56, waist: 39, arms: 21, thighs: 29 },
     workout: {
       split: '6-day wrestler strength & grappling conditioning',
       days: [
         day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
         day('Day 2', 'Grip & Wrestling Strength', [ex('Farmer Carry', 5, '50m'), ex('Plate Pinch Hold', 4, '30s'), ex('Weighted Dead Hang', 4, '20s')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '6'), ex('Leg Press', 4, '12'), ex('Walking Lunge', 4, '12')]),
-        day('Day 4', 'Combat Conditioning', [ex('Heavy Bag Rounds', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Sled Push', 4, '20m')]),
+        day('Day 4', 'Combat Conditioning', [ex('Shadow Boxing', 6, '3 min'), ex('Battle Ropes', 5, '30s'), ex('Farmer Carry', 4, '20m')]),
         day('Day 5', 'Shoulders & Arms', [ex('Overhead Press', 5, '8'), ex('Barbell Curl', 5, '10'), ex('Skull Crusher', 5, '10')]),
-        day('Day 6', 'Strongman Power', [ex('Tire Flip', 5, '10'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Farmer Carry', 5, '50m')]),
+        day('Day 6', 'Strongman Power', [ex('Kettlebell Swing', 5, '10'), ex('Heavy Trap Bar Carry', 5, '20m'), ex('Farmer Carry', 5, '50m')]),
       ],
     },
     diet: {
@@ -689,14 +689,14 @@ export const HEROES = [
     archetype: 'Symbiote Brute',
     category: 'villain',
     blurb: 'Hybrid mass and explosiveness — as much agility training as raw size.',
-    target: { weight: 260, bodyFat: 12, chest: 54, waist: 37, arms: 20, thighs: 28 },
+    target: { weight: 260, bodyFat: 15, chest: 54, waist: 37, arms: 20, thighs: 28 },
     workout: {
       split: '5-day hybrid mass & explosive power',
       days: [
         day('Day 1', 'Strength — Full Body', [ex('Deadlift', 5, '5'), ex('Barbell Bench Press', 5, '6'), ex('Weighted Pull-Up', 5, '8')]),
         day('Day 2', 'Explosive Power', [ex('Box Jump', 5, '8'), ex('Medicine Ball Slam', 5, '12'), ex('Broad Jump', 4, '6')]),
         day('Day 3', 'Legs — Heavy', [ex('Back Squat', 5, '6'), ex('Leg Press', 4, '12'), ex('Bulgarian Split Squat', 4, '10')]),
-        day('Day 4', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Rope Climb', 5, '3'), ex('Weighted Dead Hang', 4, '15s')]),
+        day('Day 4', 'Grip & Pulling Strength', [ex('TRX Suspension Circuit', 1, '45 min'), ex('Weighted Pull-Up', 5, '8'), ex('Weighted Dead Hang', 4, '15s')]),
         day('Day 5', 'Predator Conditioning', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Battle Ropes', 5, '30s'), ex('Bear Crawl', 4, '20m')]),
       ],
     },
@@ -718,14 +718,14 @@ export const HEROES = [
     archetype: 'Aerial Strategist',
     category: 'villain',
     blurb: 'Lean, agile power built for aerial maneuvering and calculated, explosive strikes.',
-    target: { weight: 195, bodyFat: 10, chest: 43, waist: 31, arms: 15.5, thighs: 23.5 },
+    target: { weight: 195, bodyFat: 13, chest: 43, waist: 31, arms: 15.5, thighs: 23.5 },
     workout: {
       split: '5-day aerial agility & explosive strength',
       days: [
         day('Day 1', 'Explosive Strength', [ex('Power Clean', 5, '3'), ex('Box Jump', 5, '6'), ex('Trap Bar Jump', 4, '5')]),
         day('Day 2', 'Aerial Mobility', [ex('Balance Drills', 4, '30s'), ex('Core Flow Circuit', 4, '10 min'), ex('Handstand Hold', 4, '30s')]),
         day('Day 3', 'Strength — Full Body', [ex('Front Squat', 5, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '6')]),
-        day('Day 4', 'Combat & Reaction Drills', [ex('Heavy Bag Combos', 6, '2 min'), ex('Reaction Ball Drills', 5, '2 min'), ex('Agility Ladder', 5, '30s')]),
+        day('Day 4', 'Combat & Reaction Drills', [ex('Shadow Boxing', 6, '2 min'), ex('Reaction Ball Drills', 5, '2 min'), ex('Agility Ladder', 5, '30s')]),
         day('Day 5', 'Endurance Conditioning', [ex('Treadmill Sprint Intervals', 8, '60m'), ex('Rowing Sprints', 5, '250m')]),
       ],
     },
@@ -752,7 +752,7 @@ export const HEROES = [
       split: '5-day gymnastic brawler conditioning',
       days: [
         day('Day 1', 'Plyometric Power', [ex('Squat Jump', 5, '6'), ex('Broad Jump', 5, '8'), ex('Box Jump', 4, '8')]),
-        day('Day 2', 'Combat — Hammer Work', [ex('Heavy Bag Combos', 6, '2 min'), ex('Kettlebell Swing', 5, '10'), ex('Agility Ladder', 5, '30s')]),
+        day('Day 2', 'Combat — Hammer Work', [ex('Shadow Boxing', 6, '2 min'), ex('Kettlebell Swing', 5, '10'), ex('Agility Ladder', 5, '30s')]),
         day('Day 3', 'Strength — Full Body', [ex('Deadlift', 4, '6'), ex('Weighted Pull-Up', 4, '8'), ex('Barbell Bench Press', 4, '8')]),
         day('Day 4', 'Chaos Conditioning', [ex('Randomized Gym Circuit', 1, '25 min'), ex('Battle Ropes', 4, '30s'), ex('Treadmill Sprint Intervals', 6, '60m')]),
         day('Day 5', 'Core & Balance', [ex('Balance Board Hold', 4, '10 min'), ex('Weighted Sit-Up', 4, '15'), ex('Handstand Hold', 4, '20s')]),
