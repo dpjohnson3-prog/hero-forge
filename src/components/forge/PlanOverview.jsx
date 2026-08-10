@@ -1,3 +1,4 @@
+import { Swords } from 'lucide-react'
 import HeroEmblem from './HeroEmblem'
 
 export default function PlanOverview({ hero }) {
@@ -37,6 +38,18 @@ export default function PlanOverview({ hero }) {
             </div>
           ))}
         </div>
+
+        {hero.recommendedTraining && (
+          <div className="mt-4 flex items-start gap-2.5 rounded-md border border-dashed border-border bg-panel-raised/50 px-3.5 py-3">
+            <Swords className="mt-0.5 h-4 w-4 shrink-0 text-text-dim" />
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-wide text-text-dim">
+                Recommended Training <span className="font-normal normal-case text-text-dim/70">— optional, not part of your gym plan</span>
+              </div>
+              <p className="mt-1 text-sm text-text-dim">{hero.recommendedTraining}</p>
+            </div>
+          </div>
+        )}
         </div>
       </div>
     </div>

@@ -14,6 +14,8 @@ export const HEROES = [
     archetype: 'Tactical Powerhouse',
     category: 'hero',
     blurb: 'Dense, functional muscle built for strength, striking power and all-night endurance.',
+    recommendedTraining:
+      "Batman's crime-fighting technique draws from a dozen real disciplines, chief among them Judo, Boxing, Muay Thai, and Krav Maga. A gym that offers cross-training in striking and grappling is the closest real-world match.",
     target: { weight: 210, bodyFat: 12, chest: 46, waist: 32, arms: 16.5, thighs: 25 },
     workout: {
       split: '6-day hybrid strength & combat conditioning',
@@ -44,6 +46,8 @@ export const HEROES = [
     archetype: 'Acrobatic Athlete',
     category: 'hero',
     blurb: 'Lean, springy, gymnast-built physique optimized for speed, agility and aerial movement.',
+    recommendedTraining:
+      "Nightwing's signature stick-fighting comes from Eskrima (Filipino martial arts), layered on a gymnastics foundation. An Eskrima/Kali class alongside tumbling or parkour tracks closely with his style.",
     target: { weight: 180, bodyFat: 10, chest: 41, waist: 29, arms: 14.5, thighs: 22.5 },
     workout: {
       split: '5-day gymnastic strength training',
@@ -73,6 +77,8 @@ export const HEROES = [
     archetype: 'Fighter\'s Physique',
     category: 'hero',
     blurb: 'Wiry, whip-strong boxer/martial-artist build with elite conditioning and pain tolerance.',
+    recommendedTraining:
+      "Daredevil's ring-honed striking is rooted in Boxing, with Judo and gymnastics-informed acrobatics filling out the rest of his game. Pairing a boxing gym with a judo or jiu-jitsu class is the closest real-world match.",
     target: { weight: 185, bodyFat: 11, chest: 42, waist: 30, arms: 15, thighs: 23 },
     workout: {
       split: '6-day boxing & martial arts conditioning',
@@ -161,6 +167,8 @@ export const HEROES = [
     archetype: 'Peak Human Soldier',
     category: 'hero',
     blurb: 'The pinnacle of balanced athleticism — strength, speed, endurance and agility in one frame.',
+    recommendedTraining:
+      "Steve Rogers boxed before the serum, and it shows — his hand-to-hand is grounded in Boxing and military-style combatives that blend judo, wrestling, and striking fundamentals.",
     target: { weight: 220, bodyFat: 12, chest: 48, waist: 33, arms: 17.5, thighs: 25.5 },
     workout: {
       split: '6-day military hybrid training',
@@ -220,6 +228,8 @@ export const HEROES = [
     archetype: 'Feral Density',
     category: 'hero',
     blurb: 'Short, dense, brutally powerful build with a mutant healing factor allowing relentless training volume.',
+    recommendedTraining:
+      "Wolverine's mentor Ogun trained him in Kenjutsu (Japanese swordsmanship) and traditional bushido discipline. Krav Maga is a solid modern stand-in for his relentless, close-range fighting style.",
     target: { weight: 200, bodyFat: 11, chest: 47, waist: 32, arms: 17, thighs: 24.5 },
     workout: {
       split: '6-day high-frequency strength training',
@@ -279,6 +289,8 @@ export const HEROES = [
     archetype: 'Explosive Predator',
     category: 'hero',
     blurb: 'Lean, explosive, big-cat-inspired build combining speed, agility and striking power.',
+    recommendedTraining:
+      "Wakandan combat draws on real African martial arts traditions and shares DNA with Muay Thai's striking power and Capoeira's fluid, unpredictable movement.",
     target: { weight: 200, bodyFat: 10, chest: 45, waist: 31, arms: 16, thighs: 24 },
     workout: {
       split: '6-day martial arts & explosive power',
@@ -309,6 +321,8 @@ export const HEROES = [
     archetype: 'Amazonian Warrior',
     category: 'hero',
     blurb: 'Powerful, athletic warrior build combining heavy strength with elite combat conditioning.',
+    recommendedTraining:
+      "Amazonian warrior training has real roots in Pankration, the all-in combat sport of ancient Greece, complemented by Judo for modern grappling technique.",
     target: { weight: 165, bodyFat: 18, chest: 38, waist: 27, arms: 13, thighs: 23 },
     workout: {
       split: '6-day warrior strength & combat training',
@@ -368,6 +382,8 @@ export const HEROES = [
     archetype: 'Merc Athletic Build',
     category: 'hero',
     blurb: 'Athletic, functional mercenary build — strong and fast enough to fight dirty and heal from anything.',
+    recommendedTraining:
+      "Deadpool's blade work draws from Filipino Kali/Eskrima, while his dirtier, close-range instincts owe more to Krav Maga's no-rules approach.",
     target: { weight: 210, bodyFat: 14, chest: 45, waist: 33, arms: 16.5, thighs: 24.5 },
     workout: {
       split: '6-day unconventional mercenary training',
@@ -484,6 +500,8 @@ export const HEROES = [
     archetype: 'Elite Operative',
     category: 'hero',
     blurb: 'Lean, precise spy-assassin build optimized for stealth, close-quarters combat, and split-second reaction.',
+    recommendedTraining:
+      "The Red Room trained Black Widow in Krav Maga and Judo, with roots in Systema — the Russian martial art built around breath control and relaxed, adaptive movement.",
     target: { weight: 135, bodyFat: 18, chest: 34, waist: 25, arms: 11.5, thighs: 20 },
     workout: {
       split: '5-day tactical assassin conditioning',
@@ -571,6 +589,8 @@ export const HEROES = [
     archetype: 'Tactical Enhanced Soldier',
     category: 'hero',
     blurb: 'Gritty, asymmetric functional strength sharpened by a soldier\'s discipline and enhancement.',
+    recommendedTraining:
+      "Like Black Widow, Bucky's Soviet-era training centers on Krav Maga and Systema — efficient, no-nonsense combatives built for real fights, not points.",
     target: { weight: 205, bodyFat: 11, chest: 45, waist: 31, arms: 16.5, thighs: 24.5 },
     workout: {
       split: '6-day tactical soldier training',
@@ -601,6 +621,8 @@ export const HEROES = [
     archetype: 'Precision Archer',
     category: 'hero',
     blurb: 'Elite back and core strength for the draw, paired with marksman-grade stillness and endurance.',
+    recommendedTraining:
+      "Oliver Queen's island years included training in Hapkido, a Korean art built on joint locks and redirected force — a natural complement to the stillness and precision archery demands.",
     target: { weight: 190, bodyFat: 12, chest: 43, waist: 32, arms: 15, thighs: 23 },
     workout: {
       split: '5-day archery-focused strength & stillness training',
@@ -659,6 +681,8 @@ export const HEROES = [
     archetype: 'Enhanced Brawler',
     category: 'villain',
     blurb: 'Technical wrestler\'s mass — brutal grappling strength paired with genius-level fight IQ.',
+    recommendedTraining:
+      "Bane's genius-level fight IQ is built on technical wrestling. Catch Wrestling and Brazilian Jiu-Jitsu are the closest real-world match for his grappling-heavy style.",
     target: { weight: 280, bodyFat: 18, chest: 56, waist: 39, arms: 21, thighs: 29 },
     workout: {
       split: '6-day wrestler strength & grappling conditioning',
@@ -747,6 +771,8 @@ export const HEROES = [
     archetype: 'Acrobatic Brawler',
     category: 'villain',
     blurb: 'Gymnast-level agility with unpredictable, high-output power bursts.',
+    recommendedTraining:
+      "Harley's a former college gymnast, and it shows in her unpredictable, acrobatic brawling. Pairing gymnastics or tumbling with kickboxing tracks closely with her style.",
     target: { weight: 130, bodyFat: 19, chest: 33, waist: 25, arms: 11, thighs: 20 },
     workout: {
       split: '5-day gymnastic brawler conditioning',
