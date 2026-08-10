@@ -66,11 +66,3 @@ body {
   background: var(--color-border);
   border-radius: 999px;
 }
-
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}

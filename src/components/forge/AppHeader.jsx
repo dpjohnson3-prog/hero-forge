@@ -1,20 +1,17 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { Flame, LayoutDashboard, Dumbbell, LogOut, Settings as SettingsIcon, Users } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Flame, Menu } from 'lucide-react'
 import { useAuth } from '../../context/AuthProvider'
 import { useSelectedHero } from '../../hooks/useSelectedHero'
 import ConfirmDialog from './ConfirmDialog'
-
-const navLinkClass = ({ isActive }) =>
-  `flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold transition-colors sm:px-4 ${
-    isActive ? 'bg-hero-gold text-ink' : 'text-text-dim hover:text-text hover:bg-panel-raised'
-  }`
+import NavDrawer from './NavDrawer'
 
 export default function AppHeader() {
   const { signOut } = useAuth()
   const { hero } = useSelectedHero()
   const navigate = useNavigate()
   const [confirmOpen, setConfirmOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
@@ -26,38 +23,23 @@ export default function AppHeader() {
               Hero<span className="text-hero-gold">Forge</span>
             </span>
           </div>
-          <nav className="no-scrollbar flex min-w-0 items-center gap-1 overflow-x-auto sm:gap-2">
-            <NavLink to="/" end className={navLinkClass}>
-              <Dumbbell className="h-4 w-4" />
-              <span className="hidden sm:inline">Train</span>
-            </NavLink>
-            <NavLink to="/dashboard" className={navLinkClass}>
-              <LayoutDashboard className="h-4 w-4" />
-              <span className="hidden sm:inline">Progress</span>
-            </NavLink>
-            <button
-              type="button"
-              onClick={() => setConfirmOpen(true)}
-              className="flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-text sm:px-4"
-            >
-              <Users className="h-4 w-4" />
-              <span className="hidden sm:inline">Change Hero</span>
-            </button>
-            <NavLink to="/settings" className={navLinkClass}>
-              <SettingsIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Settings</span>
-            </NavLink>
-            <button
-              type="button"
-              onClick={() => signOut()}
-              className="flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-semibold text-text-dim transition-colors hover:bg-panel-raised hover:text-hero-red sm:px-4"
-            >
-              <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Sign Out</span>
-            </button>
-          </nav>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+            className="flex shrink-0 items-center justify-center rounded-md p-2 text-text-dim transition-colors hover:bg-panel-raised hover:text-text"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
       </header>
+
+      <NavDrawer
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        onChangeHero={() => setConfirmOpen(true)}
+        onSignOut={() => signOut()}
+      />
 
       <ConfirmDialog
         open={confirmOpen}
