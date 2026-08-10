@@ -1,7 +1,10 @@
 import { Swords } from 'lucide-react'
 import HeroEmblem from './HeroEmblem'
+import { getDailyQuote } from '../../lib/dailyQuote'
 
 export default function PlanOverview({ hero }) {
+  const dailyQuote = getDailyQuote(hero.quotes)
+
   return (
     <div className="comic-panel relative overflow-hidden p-5 sm:p-6">
       <span
@@ -9,11 +12,18 @@ export default function PlanOverview({ hero }) {
         style={{ backgroundColor: hero.color }}
       />
       <div className="flex items-start gap-4 pl-2">
-        <div
-          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-panel-raised sm:h-16 sm:w-16"
-          style={{ borderColor: hero.color }}
-        >
-          <HeroEmblem heroId={hero.id} className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: hero.color }} />
+        <div className="flex shrink-0 flex-col items-center gap-2">
+          <div
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-panel-raised sm:h-16 sm:w-16"
+            style={{ borderColor: hero.color }}
+          >
+            <HeroEmblem heroId={hero.id} className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: hero.color }} />
+          </div>
+          {dailyQuote && (
+            <p className="max-w-[100px] text-center text-[10px] italic leading-snug text-text-dim sm:max-w-[120px]">
+              &ldquo;{dailyQuote}&rdquo;
+            </p>
+          )}
         </div>
         <div className="min-w-0">
           <div className="text-xs font-semibold uppercase tracking-widest text-text-dim">

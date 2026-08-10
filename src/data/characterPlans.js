@@ -14,6 +14,7 @@ export const HEROES = [
     archetype: 'Tactical Powerhouse',
     category: 'hero',
     blurb: 'Dense, functional muscle built for strength, striking power and all-night endurance.',
+    quotes: ["Fear is a tool. I decided a long time ago which side of it I'd stand on."],
     recommendedTraining:
       "Batman's crime-fighting technique draws from a dozen real disciplines, chief among them Judo, Boxing, Muay Thai, and Krav Maga. A gym that offers cross-training in striking and grappling is the closest real-world match.",
     target: { weight: 210, bodyFat: 12, chest: 46, waist: 32, arms: 16.5, thighs: 25 },
@@ -46,6 +47,7 @@ export const HEROES = [
     archetype: 'Acrobatic Athlete',
     category: 'hero',
     blurb: 'Lean, springy, gymnast-built physique optimized for speed, agility and aerial movement.',
+    quotes: ["I don't need the shadow to prove myself. I make my own light."],
     recommendedTraining:
       "Nightwing's signature stick-fighting comes from Eskrima (Filipino martial arts), layered on a gymnastics foundation. An Eskrima/Kali class alongside tumbling or parkour tracks closely with his style.",
     target: { weight: 180, bodyFat: 10, chest: 41, waist: 29, arms: 14.5, thighs: 22.5 },
@@ -77,6 +79,7 @@ export const HEROES = [
     archetype: 'Fighter\'s Physique',
     category: 'hero',
     blurb: 'Wiry, whip-strong boxer/martial-artist build with elite conditioning and pain tolerance.',
+    quotes: ["Pain's just information. I've learned to read it fast."],
     recommendedTraining:
       "Daredevil's ring-honed striking is rooted in Boxing, with Judo and gymnastics-informed acrobatics filling out the rest of his game. Pairing a boxing gym with a judo or jiu-jitsu class is the closest real-world match.",
     target: { weight: 185, bodyFat: 11, chest: 42, waist: 30, arms: 15, thighs: 23 },
@@ -109,6 +112,7 @@ export const HEROES = [
     archetype: 'Godly Mass & Power',
     category: 'hero',
     blurb: 'Massive, powerful frame built with heavy strength training for raw, overwhelming power.',
+    quotes: ["Strength isn't what you're given. It's what you're willing to carry."],
     target: { weight: 250, bodyFat: 15, chest: 52, waist: 36, arms: 19, thighs: 27 },
     workout: {
       split: '5-day heavy strength & mass split',
@@ -138,6 +142,7 @@ export const HEROES = [
     archetype: 'Classic Heroic Build',
     category: 'hero',
     blurb: 'The archetypal balanced physique — broad shoulders, full chest, and a tapered waist.',
+    quotes: ["Being strong means nothing if you're not the first one to show up."],
     target: { weight: 235, bodyFat: 13, chest: 50, waist: 34, arms: 18, thighs: 26 },
     workout: {
       split: '5-day classic bodybuilding split',
@@ -167,6 +172,7 @@ export const HEROES = [
     archetype: 'Peak Human Soldier',
     category: 'hero',
     blurb: 'The pinnacle of balanced athleticism — strength, speed, endurance and agility in one frame.',
+    quotes: ["I don't quit when it's hard. That's usually when it matters most."],
     recommendedTraining:
       "Steve Rogers boxed before the serum, and it shows — his hand-to-hand is grounded in Boxing and military-style combatives that blend judo, wrestling, and striking fundamentals.",
     target: { weight: 220, bodyFat: 12, chest: 48, waist: 33, arms: 17.5, thighs: 25.5 },
@@ -199,6 +205,7 @@ export const HEROES = [
     archetype: 'Maximum Mass',
     category: 'hero',
     blurb: 'Extreme, overwhelming muscle mass built through brutal high-volume strength training.',
+    quotes: ["The angrier the world gets, the calmer I have to be to control it."],
     target: { weight: 275, bodyFat: 17, chest: 56, waist: 38, arms: 21, thighs: 29 },
     workout: {
       split: '5-day high-volume mass split',
@@ -228,6 +235,7 @@ export const HEROES = [
     archetype: 'Feral Density',
     category: 'hero',
     blurb: 'Short, dense, brutally powerful build with a mutant healing factor allowing relentless training volume.',
+    quotes: ["Break me down today, I'll just heal stronger by tomorrow."],
     recommendedTraining:
       "Wolverine's mentor Ogun trained him in Kenjutsu (Japanese swordsmanship) and traditional bushido discipline. Krav Maga is a solid modern stand-in for his relentless, close-range fighting style.",
     target: { weight: 200, bodyFat: 11, chest: 47, waist: 32, arms: 17, thighs: 24.5 },
@@ -260,6 +268,7 @@ export const HEROES = [
     archetype: 'Swimmer\'s Power Build',
     category: 'hero',
     blurb: 'Broad, powerful swimmer\'s physique combining raw strength with elite aquatic endurance.',
+    quotes: ["Currents don't fight the ocean. They become part of it."],
     target: { weight: 230, bodyFat: 14, chest: 49, waist: 34, arms: 17.5, thighs: 26 },
     workout: {
       split: '5-day swim-strength hybrid',
@@ -289,6 +298,7 @@ export const HEROES = [
     archetype: 'Explosive Predator',
     category: 'hero',
     blurb: 'Lean, explosive, big-cat-inspired build combining speed, agility and striking power.',
+    quotes: ["A king doesn't chase the fight. He's already three steps ahead of it."],
     recommendedTraining:
       "Wakandan combat draws on real African martial arts traditions and shares DNA with Muay Thai's striking power and Capoeira's fluid, unpredictable movement.",
     target: { weight: 200, bodyFat: 10, chest: 45, waist: 31, arms: 16, thighs: 24 },
@@ -321,6 +331,7 @@ export const HEROES = [
     archetype: 'Amazonian Warrior',
     category: 'hero',
     blurb: 'Powerful, athletic warrior build combining heavy strength with elite combat conditioning.',
+    quotes: ["Compassion is not weakness. It's the strength that outlasts every war."],
     recommendedTraining:
       "Amazonian warrior training has real roots in Pankration, the all-in combat sport of ancient Greece, complemented by Judo for modern grappling technique.",
     target: { weight: 165, bodyFat: 18, chest: 38, waist: 27, arms: 13, thighs: 23 },
@@ -353,6 +364,7 @@ export const HEROES = [
     archetype: 'Wall-Crawler Athlete',
     category: 'hero',
     blurb: 'Lean, wiry, incredibly agile physique built for climbing, swinging, and rapid direction changes.',
+    quotes: ["Every fall teaches you how to land better next time."],
     target: { weight: 165, bodyFat: 10, chest: 39, waist: 28, arms: 13.5, thighs: 21.5 },
     workout: {
       split: '5-day calisthenics & agility training',
@@ -382,6 +394,7 @@ export const HEROES = [
     archetype: 'Merc Athletic Build',
     category: 'hero',
     blurb: 'Athletic, functional mercenary build — strong and fast enough to fight dirty and heal from anything.',
+    quotes: ["Nobody said this had to look pretty. It just has to work."],
     recommendedTraining:
       "Deadpool's blade work draws from Filipino Kali/Eskrima, while his dirtier, close-range instincts owe more to Krav Maga's no-rules approach.",
     target: { weight: 210, bodyFat: 14, chest: 45, waist: 33, arms: 16.5, thighs: 24.5 },
@@ -414,6 +427,7 @@ export const HEROES = [
     archetype: 'Efficient Athletic Build',
     category: 'hero',
     blurb: 'Trim, functional athletic build — enough conditioning to survive without the suit, built efficiently.',
+    quotes: ["Take the suit away and what's left better still be dangerous."],
     target: { weight: 190, bodyFat: 15, chest: 43, waist: 32, arms: 15.5, thighs: 23 },
     workout: {
       split: '4-day efficient strength & conditioning',
@@ -442,6 +456,7 @@ export const HEROES = [
     archetype: 'Unbreakable Tank',
     category: 'hero',
     blurb: 'Massive, dense, unbreakable frame built through heavy compound lifts and constant grinding volume.',
+    quotes: ["Unbreakable isn't a birthright. It's built one rep at a time."],
     target: { weight: 260, bodyFat: 16, chest: 54, waist: 37, arms: 20, thighs: 28 },
     workout: {
       split: '5-day tank-strength split',
@@ -471,6 +486,7 @@ export const HEROES = [
     archetype: 'Instant Powerhouse',
     category: 'hero',
     blurb: 'A towering, godly-power physique — huge shoulders, thick chest, and explosive full-body strength.',
+    quotes: ["The power was never the point. Showing up ready was."],
     target: { weight: 245, bodyFat: 15, chest: 51, waist: 35, arms: 18.5, thighs: 26.5 },
     workout: {
       split: '5-day power & mass split',
@@ -500,6 +516,7 @@ export const HEROES = [
     archetype: 'Elite Operative',
     category: 'hero',
     blurb: 'Lean, precise spy-assassin build optimized for stealth, close-quarters combat, and split-second reaction.',
+    quotes: ["Control your breath, control the room."],
     recommendedTraining:
       "The Red Room trained Black Widow in Krav Maga and Judo, with roots in Systema — the Russian martial art built around breath control and relaxed, adaptive movement.",
     target: { weight: 135, bodyFat: 18, chest: 34, waist: 25, arms: 11.5, thighs: 20 },
@@ -531,6 +548,7 @@ export const HEROES = [
     archetype: 'Elemental Force',
     category: 'hero',
     blurb: 'Fluid, controlled-power physique built on elite core stability and breath control for sustained command.',
+    quotes: ["Stillness isn't the absence of power. It's power, restrained."],
     target: { weight: 150, bodyFat: 19, chest: 36, waist: 26, arms: 12, thighs: 21 },
     workout: {
       split: '5-day flow & controlled-power training',
@@ -560,6 +578,7 @@ export const HEROES = [
     archetype: 'Living Steel',
     category: 'hero',
     blurb: 'The heaviest structural mass in the roster — maximum size and raw compressive strength.',
+    quotes: ["Some walls don't move. Be one of them."],
     target: { weight: 290, bodyFat: 17, chest: 58, waist: 40, arms: 22, thighs: 30 },
     workout: {
       split: '5-day maximal mass & structural strength',
@@ -589,6 +608,7 @@ export const HEROES = [
     archetype: 'Tactical Enhanced Soldier',
     category: 'hero',
     blurb: 'Gritty, asymmetric functional strength sharpened by a soldier\'s discipline and enhancement.',
+    quotes: ["Discipline is what's left after everything else gets stripped away."],
     recommendedTraining:
       "Like Black Widow, Bucky's Soviet-era training centers on Krav Maga and Systema — efficient, no-nonsense combatives built for real fights, not points.",
     target: { weight: 205, bodyFat: 11, chest: 45, waist: 31, arms: 16.5, thighs: 24.5 },
@@ -621,6 +641,7 @@ export const HEROES = [
     archetype: 'Precision Archer',
     category: 'hero',
     blurb: 'Elite back and core strength for the draw, paired with marksman-grade stillness and endurance.',
+    quotes: ["One shot means everything before it has to be perfect."],
     recommendedTraining:
       "Oliver Queen's island years included training in Hapkido, a Korean art built on joint locks and redirected force — a natural complement to the stillness and precision archery demands.",
     target: { weight: 190, bodyFat: 12, chest: 43, waist: 32, arms: 15, thighs: 23 },
@@ -652,6 +673,7 @@ export const HEROES = [
     archetype: 'Titan Powerhouse',
     category: 'villain',
     blurb: 'Cosmic-scale mass and power — the single largest strength target in HeroForge.',
+    quotes: ["Balance demands sacrifice. Most people just aren't willing to pay it."],
     target: { weight: 320, bodyFat: 16, chest: 60, waist: 42, arms: 23, thighs: 31 },
     workout: {
       split: '5-day titan strength & power split',
@@ -681,6 +703,7 @@ export const HEROES = [
     archetype: 'Enhanced Brawler',
     category: 'villain',
     blurb: 'Technical wrestler\'s mass — brutal grappling strength paired with genius-level fight IQ.',
+    quotes: ["Brute force is for amateurs. I calculate before I break anything."],
     recommendedTraining:
       "Bane's genius-level fight IQ is built on technical wrestling. Catch Wrestling and Brazilian Jiu-Jitsu are the closest real-world match for his grappling-heavy style.",
     target: { weight: 280, bodyFat: 18, chest: 56, waist: 39, arms: 21, thighs: 29 },
@@ -713,6 +736,7 @@ export const HEROES = [
     archetype: 'Symbiote Brute',
     category: 'villain',
     blurb: 'Hybrid mass and explosiveness — as much agility training as raw size.',
+    quotes: ["We don't hold back. Restraint is somebody else's problem."],
     target: { weight: 260, bodyFat: 15, chest: 54, waist: 37, arms: 20, thighs: 28 },
     workout: {
       split: '5-day hybrid mass & explosive power',
@@ -742,6 +766,7 @@ export const HEROES = [
     archetype: 'Aerial Strategist',
     category: 'villain',
     blurb: 'Lean, agile power built for aerial maneuvering and calculated, explosive strikes.',
+    quotes: ["Chaos, done properly, looks a lot like genius."],
     target: { weight: 195, bodyFat: 13, chest: 43, waist: 31, arms: 15.5, thighs: 23.5 },
     workout: {
       split: '5-day aerial agility & explosive strength',
@@ -771,6 +796,7 @@ export const HEROES = [
     archetype: 'Acrobatic Brawler',
     category: 'villain',
     blurb: 'Gymnast-level agility with unpredictable, high-output power bursts.',
+    quotes: ["Unpredictable just means nobody sees me coming."],
     recommendedTraining:
       "Harley's a former college gymnast, and it shows in her unpredictable, acrobatic brawling. Pairing gymnastics or tumbling with kickboxing tracks closely with her style.",
     target: { weight: 130, bodyFat: 19, chest: 33, waist: 25, arms: 11, thighs: 20 },
