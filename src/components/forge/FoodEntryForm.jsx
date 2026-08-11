@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { Camera, Loader2, Plus, Sparkles } from 'lucide-react'
 import { useFoodScan } from '../../hooks/useFoodScan'
+import { tapLight } from '../../lib/haptics'
 
 const EMPTY = { name: '', calories: '', protein: '', carbs: '', fat: '' }
 
@@ -19,6 +20,7 @@ export default function FoodEntryForm({ onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.name.trim()) return
+    tapLight()
     onAdd({
       name: form.name.trim(),
       calories: Number(form.calories) || 0,

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { Camera, Loader2 } from 'lucide-react'
+import { tapLight } from '../../lib/haptics'
 
 export default function PhotoUpload({ onUpload, uploading }) {
   const inputRef = useRef(null)
@@ -10,6 +11,7 @@ export default function PhotoUpload({ onUpload, uploading }) {
     e.target.value = '' // allow re-selecting the same file later
     if (!file) return
 
+    tapLight()
     setError(null)
     const { error: uploadError } = await onUpload(file)
     if (uploadError) setError(uploadError)

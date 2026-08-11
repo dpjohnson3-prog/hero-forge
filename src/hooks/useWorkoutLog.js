@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthProvider'
+import { celebrate, celebrateBig } from '../lib/haptics'
+import { STREAK_MILESTONES } from '../lib/streakMilestones'
 
 const todayKey = () => new Date().toISOString().slice(0, 10)
 
@@ -53,6 +55,13 @@ export function useWorkoutLog() {
         .eq('date', today)
       if (error) console.error('Failed to unmark workout', error)
     } else {
+      const newTotal = dates.length + 1
+      if (STREAK_MILESTONES.includes(newTotal)) {
+        celebrateBig()
+      } else {
+        celebrate()
+      }
+
       setDates((prev) => [...prev, today].sort())
       const { error } = await supabase
         .from('workout_log')

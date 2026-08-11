@@ -1,6 +1,5 @@
 import { Award, Flame, Lock } from 'lucide-react'
-
-const MILESTONES = [7, 14, 30, 60, 100]
+import { STREAK_MILESTONES } from '../../lib/streakMilestones'
 
 export default function StreakBadges({ currentStreak, totalSessions }) {
   return (
@@ -15,7 +14,7 @@ export default function StreakBadges({ currentStreak, totalSessions }) {
       </p>
 
       <div className="grid grid-cols-5 gap-2">
-        {MILESTONES.map((milestone) => {
+        {STREAK_MILESTONES.map((milestone) => {
           const earned = totalSessions >= milestone
           return (
             <div
