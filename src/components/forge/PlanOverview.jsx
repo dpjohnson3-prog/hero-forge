@@ -12,18 +12,11 @@ export default function PlanOverview({ hero }) {
         style={{ backgroundColor: hero.color }}
       />
       <div className="flex items-start gap-4 pl-2">
-        <div className="flex shrink-0 flex-col items-center gap-2">
-          <div
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-panel-raised sm:h-16 sm:w-16"
-            style={{ borderColor: hero.color }}
-          >
-            <HeroEmblem heroId={hero.id} className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: hero.color }} />
-          </div>
-          {dailyQuote && (
-            <p className="max-w-[100px] text-center text-[10px] italic leading-snug text-text-dim sm:max-w-[120px]">
-              &ldquo;{dailyQuote}&rdquo;
-            </p>
-          )}
+        <div
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-panel-raised sm:h-16 sm:w-16"
+          style={{ borderColor: hero.color }}
+        >
+          <HeroEmblem heroId={hero.id} className="h-8 w-8 sm:h-9 sm:w-9" style={{ color: hero.color }} />
         </div>
         <div className="min-w-0">
           <div className="text-xs font-semibold uppercase tracking-widest text-text-dim">
@@ -32,6 +25,9 @@ export default function PlanOverview({ hero }) {
           <h1 className="font-display mt-1 text-2xl sm:text-3xl">
             {hero.name} <span className="text-text-dim font-body text-base font-normal">/ {hero.alias}</span>
           </h1>
+          {dailyQuote && (
+            <p className="mt-1 text-sm italic text-text-dim">&ldquo;{dailyQuote}&rdquo;</p>
+          )}
           <p className="mt-2 max-w-2xl text-sm text-text-dim sm:text-base">{hero.blurb}</p>
 
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
