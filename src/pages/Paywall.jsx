@@ -40,10 +40,52 @@ function packageIsTrialEligible(pkg, trialEligibility) {
   return eligibility?.status === INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE
 }
 
+// ============================================================================
+// TEMPORARY — APP STORE SCREENSHOT MOCK. NOT REAL PRICING.
+// RevenueCat can't return live product prices until the subscriptions are
+// submitted for review, so this fakes an Offering shape purely so the paywall
+// has realistic-looking pricing to screenshot. It only overrides what this
+// component reads for `offering`/`loading` — SubscriptionProvider, purchases.js,
+// and the real purchase() call are completely untouched.
+//
+// TO REVERT: delete this whole block, and inside Paywall() change
+//   const { isPro, loading: realLoading, offering: realOffering, trialEligibility, purchase, restore } = useSubscription()
+//   const offering = SCREENSHOT_MOCK_PRICING ? MOCK_OFFERING : realOffering
+//   const loading = SCREENSHOT_MOCK_PRICING ? false : realLoading
+// back to:
+//   const { isPro, loading, offering, trialEligibility, purchase, restore } = useSubscription()
+// ============================================================================
+const SCREENSHOT_MOCK_PRICING = true
+const MOCK_OFFERING = {
+  monthly: {
+    identifier: 'mock_monthly_screenshot',
+    packageType: 'MONTHLY',
+    product: {
+      identifier: 'heroforge.pro.monthly',
+      price: 7.99,
+      priceString: '$7.99',
+      introPrice: null,
+    },
+  },
+  annual: {
+    identifier: 'mock_annual_screenshot',
+    packageType: 'ANNUAL',
+    product: {
+      identifier: 'heroforge.pro.annual',
+      price: 59.99,
+      priceString: '$59.99',
+      introPrice: null,
+    },
+  },
+}
+// ============================================================================
+
 export default function Paywall() {
   const navigate = useNavigate()
   const { hero } = useSelectedHero()
-  const { isPro, loading, offering, trialEligibility, purchase, restore } = useSubscription()
+  const { isPro, loading: realLoading, offering: realOffering, trialEligibility, purchase, restore } = useSubscription()
+  const offering = SCREENSHOT_MOCK_PRICING ? MOCK_OFFERING : realOffering
+  const loading = SCREENSHOT_MOCK_PRICING ? false : realLoading
   const [selectedId, setSelectedId] = useState(null)
   const [purchasing, setPurchasing] = useState(false)
   const [restoring, setRestoring] = useState(false)
